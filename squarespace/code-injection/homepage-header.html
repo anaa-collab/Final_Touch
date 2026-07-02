@@ -1,0 +1,23 @@
+<!-- ============================================================================
+     FINAL TOUCH CLEANING — HOMEPAGE-ONLY HEADER INJECTION
+     Paste into: Pages → (Home) → hover → gear ⚙ → Advanced → Page Header Code
+     Injection.  Keeps the FAQ schema scoped to the page that shows the FAQ.
+     ========================================================================= -->
+
+<!-- FAQPage schema → eligible for the FAQ rich result + AI Overview / AEO
+     answer sourcing. Keep the questions & answers here IN SYNC with the
+     on-page FAQ text, or Google may flag a mismatch. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you work off our punch list?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We clean to your punch list, coordinate with your superintendent, and document each pass room by room so the final walkthrough is a formality." } },
+    { "@type": "Question", "name": "How fast can you schedule a post-construction clean?", "acceptedAnswer": { "@type": "Answer", "text": "Most quotes become a booked date within 48 hours, and multi-family turnover work can often be scheduled the same week." } },
+    { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "Orlando, Tampa, Winter Park, and the wider Central Florida region." } },
+    { "@type": "Question", "name": "Are you licensed and insured?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — fully licensed and insured, serving Florida builders and GCs since 2019. A certificate of insurance (COI) is available on request." } },
+    { "@type": "Question", "name": "What does post-construction cleaning cost?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on square footage and scope. We walk the site first, then deliver a firm quote within 48 hours, with no surprise line items." } },
+    { "@type": "Question", "name": "Do you handle multi-family turnovers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run unit-by-unit turnover schedules for developers and property managers, keyed to your leasing or closing dates." } }
+  ]
+}
+</script>

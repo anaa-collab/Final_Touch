@@ -1,0 +1,36 @@
+<!-- ============================================================================
+     FINAL TOUCH CLEANING — SITE-WIDE FOOTER INJECTION
+     Paste into: Settings → Advanced → Code Injection → FOOTER
+     Small, dependency-free JS. Runs after the page loads.
+     ========================================================================= -->
+<script>
+(function () {
+  /* 1 · Scroll-reveal — fades ".ft-reveal" elements in as they enter view.
+     Respects reduced-motion (handled in CSS) and never hides content if
+     IntersectionObserver is unavailable. */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('ft-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+    document.querySelectorAll('.ft-reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.ft-reveal').forEach(function (el) { el.classList.add('ft-in'); });
+  }
+
+  /* 2 · FAQ accordion (only if you use the faq.html Code Block, not the
+     native Accordion block). One open at a time. */
+  document.querySelectorAll('.ft-acc .ft-item').forEach(function (it) {
+    var q = it.querySelector('.ft-q');
+    if (!q) return;
+    q.addEventListener('click', function () {
+      var open = it.classList.contains('open');
+      it.closest('.ft-acc').querySelectorAll('.ft-item').forEach(function (o) {
+        o.classList.remove('open'); var pm = o.querySelector('.ft-pm'); if (pm) pm.textContent = '+';
+      });
+      if (!open) { it.classList.add('open'); var pm = it.querySelector('.ft-pm'); if (pm) pm.textContent = '–'; }
+    });
+  });
+})();
+</script>

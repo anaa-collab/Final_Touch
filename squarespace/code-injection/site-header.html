@@ -1,0 +1,78 @@
+<!-- ============================================================================
+     FINAL TOUCH CLEANING — SITE-WIDE HEADER INJECTION
+     Paste into: Settings → Advanced → Code Injection → HEADER
+     (applies to every page)
+     ========================================================================= -->
+
+<!-- Preconnect + fonts (faster than @import; if you keep this, delete the
+     @import line at the top of the Custom CSS file) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500;600;700&display=swap" />
+
+<!-- Brand theme color for mobile browser chrome -->
+<meta name="theme-color" content="#16232F" />
+
+<!-- Reusable FT arch-mark SVG symbol. Referenced by Code Blocks via
+     <svg class="ft-lig"><use href="#ftlig"/></svg>  -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ftlig" viewBox="0 0 120 108">
+      <g fill="none" stroke="currentColor" stroke-width="9">
+        <path d="M 16 106 L 16 30 Q 16 12 34 12 L 86 12 Q 104 12 104 30 L 104 106"/>
+        <path d="M 60 12 L 60 106"/>
+        <path d="M 16 54 L 42 54"/>
+      </g>
+    </symbol>
+    <symbol id="ic-rough" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6 L24 25"/><path d="M15 25 L33 25 L34.5 33 L13.5 33 Z"/><path d="M15 33 L13.5 41"/><path d="M19.5 33 L19 41"/><path d="M24 33 L24 41.5"/><path d="M28.5 33 L29 41"/><path d="M33 33 L34.5 41"/></g></symbol>
+    <symbol id="ic-squeegee" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6 L24 21"/><path d="M14 21 L34 21 L34 26 L14 26 Z"/><path d="M17 31 L17 39"/><path d="M24 31 L24 41.5"/><path d="M31 31 L31 39"/></g></symbol>
+    <symbol id="ic-magnifier" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="20" r="9"/><path d="M27.4 26.4 L35 34"/><path d="M16.5 20.5 L20 24 L26 16"/></g></symbol>
+    <symbol id="ic-clipboard" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 13 L18 13 M30 13 L33 13 Q35 13 35 15 L35 40 Q35 42 33 42 L15 42 Q13 42 13 40 L13 15 Q13 13 15 13"/><path d="M20 10 L28 10 L28 14 L20 14 Z"/><path d="M18 27 L22.5 31.5 L31 22"/></g></symbol>
+    <symbol id="ic-seal" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="28" height="28" rx="7"/><path d="M17 24 L22 29 L31 18"/></g></symbol>
+  </defs>
+</svg>
+
+<!-- ── LocalBusiness schema (site-wide) ──────────────────────────────────────
+     Powers Google's Knowledge Panel + local pack. Update address/geo/hours
+     with your real details before launch. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://finaltouchcleaningfl.com/#business",
+  "name": "Final Touch Cleaning",
+  "description": "Post-construction cleaning and final detail for builders, general contractors, and property managers in Central Florida.",
+  "url": "https://finaltouchcleaningfl.com",
+  "telephone": "+1-407-984-8024",
+  "email": "info@finaltouchcleaningfl.com",
+  "foundingDate": "2019",
+  "priceRange": "$$",
+  "image": "https://finaltouchcleaningfl.com/logo.png",
+  "logo": "https://finaltouchcleaningfl.com/logo.png",
+  "address": { "@type": "PostalAddress", "addressRegion": "FL", "addressLocality": "Orlando", "addressCountry": "US" },
+  "areaServed": [
+    { "@type": "City", "name": "Orlando" },
+    { "@type": "City", "name": "Tampa" },
+    { "@type": "City", "name": "Winter Park" },
+    { "@type": "AdministrativeArea", "name": "Central Florida" }
+  ],
+  "sameAs": [
+    "https://www.google.com/maps/place/?q=Final+Touch+Cleaning",
+    "https://www.facebook.com/finaltouchcleaningfl",
+    "https://www.instagram.com/finaltouchcleaningfl"
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Post-Construction Cleaning Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rough clean", "description": "Debris and material haul-out, protection removal, gross dust knockdown after trades clear out." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Detail pass", "description": "Inspection-grade cleaning of glass, fixtures, millwork, and floors, room by room." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Final touch-up", "description": "Post-punch-list pass walked with the superintendent, documented and signed off before handover." } }
+    ]
+  }
+}
+</script>

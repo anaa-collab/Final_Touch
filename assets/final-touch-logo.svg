@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120" role="img" aria-label="Final Touch Cleaning">
+  <!-- FT arch mark -->
+  <g fill="none" stroke="#E9E4D8" stroke-width="9">
+    <path d="M 16 106 L 16 30 Q 16 12 34 12 L 86 12 Q 104 12 104 30 L 104 106"/>
+    <path d="M 60 12 L 60 106"/>
+    <path d="M 16 54 L 42 54"/>
+  </g>
+  <!-- Divider -->
+  <line x1="132" y1="24" x2="132" y2="96" stroke="#E9E4D8" stroke-opacity="0.35" stroke-width="1.5"/>
+  <!-- Wordmark -->
+  <text x="156" y="56" font-family="Archivo, sans-serif" font-weight="500" font-size="30" letter-spacing="7" fill="#E9E4D8">FINAL TOUCH</text>
+  <text x="157" y="86" font-family="'Spline Sans Mono', monospace" font-weight="500" font-size="13" letter-spacing="10" fill="#A8834A">CLEANING</text>
+</svg>
+<!--
+  COLOR VARIANTS — duplicate this file and swap the fills:
+    • On light/bone backgrounds: change #E9E4D8 fills/strokes to #16232F (navy)
+      and keep #A8834A (brass) for "CLEANING".
+    • All-navy or all-graphite mark: set every stroke/fill to #16232F / #141517.
+  Squarespace: Design → Logo & Title → upload this .svg. Upload the light
+  version if your header is navy (recommended), the dark version for a
+  light header.
+-->

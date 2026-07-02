@@ -1,0 +1,395 @@
+/* ============================================================================
+   FINAL TOUCH CLEANING — Squarespace 7.1 Custom CSS
+   Direction 04.2 · Archivo + Spline Sans Mono · Graphite / Navy / Bone / Brass
+   ----------------------------------------------------------------------------
+   WHERE THIS GOES:  Design → Custom CSS  (paste this whole file)
+   REQUIRES:         Business plan or higher for full effect (fonts load fine
+                     on any plan; Code Blocks referenced below need Business+).
+   ----------------------------------------------------------------------------
+   HOW IT'S ORGANIZED
+     0.  Brand tokens (colors, type, spacing)
+     1.  Fonts + global typography  (restyles NATIVE headings/text)
+     2.  Buttons                    (restyles NATIVE Squarespace buttons)
+     3.  Header / navigation
+     4.  Section theming            (marker + :has() → navy/bone/graphite bands)
+     5.  Native Form Block          (styled to match the navy quote form)
+     6.  Native Accordion Block     (styled to match the FAQ)
+     7.  ft-* components            (used inside Code Blocks)
+     8.  Scroll-reveal + motion
+     9.  Utilities + responsive
+   Search for the "§" markers to jump between sections.
+   ========================================================================== */
+
+
+/* ═══ 0 · BRAND TOKENS ════════════════════════════════════════════════════ */
+:root{
+  --graphite:#141517;  --graphite-2:#1D1F22;
+  --navy:#16232F;      --navy-2:#1E2E3D;   --navy-line:#2A3C4D;
+  --bone:#E9E4D8;      --bone-2:#DDD6C4;   --bone-line:#D3CCBA;
+  --brass:#A8834A;     --brass-dark:#8A6B3A;
+  --ink:#141517;       --ink-soft:#4C5560;
+  --ft-maxw:1200px;
+  --ft-font:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --ft-mono:'Spline Sans Mono','SFMono-Regular',ui-monospace,monospace;
+}
+
+
+/* ═══ 1 · FONTS + GLOBAL TYPOGRAPHY ═══════════════════════════════════════ */
+/* If you prefer, load the fonts via Code Injection instead of @import for a
+   small speed win — both are provided. Keep only ONE. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500;600;700&display=swap');
+
+body,
+.sqs-layout,
+p, .sqsrte-large, .sqsrte-small,
+input, select, textarea, button{
+  font-family:var(--ft-font);
+  -webkit-font-smoothing:antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.sqsrte-large{ font-family:var(--ft-font); letter-spacing:-0.018em; }
+h1{ font-weight:800; line-height:0.98; }
+h2{ font-weight:800; line-height:1.02; letter-spacing:-0.02em; }
+h3{ font-weight:700; line-height:1.1;  letter-spacing:-0.012em; }
+h4{ font-weight:600; line-height:1.25; letter-spacing:-0.005em; }
+
+p{ line-height:1.65; }
+a{ text-decoration:none; }
+
+/* Body copy never below 16px, comfortable measure (brand rule 06) */
+.sqsrte-small{ font-size:13px; }
+.sqs-block-html p{ max-width:64ch; }
+
+
+/* ═══ 2 · BUTTONS (native Squarespace button blocks + header CTA) ═════════ */
+/* Squarespace 7.1 renders buttons as .sqs-block-button-element with
+   --primary / --secondary / --tertiary modifiers (set per button in editor).
+   PRIMARY  = brass fill  (your main CTA — use once per view)
+   SECONDARY= ghost/outline (adapts to light or dark ground)                 */
+.sqs-block-button-element{
+  font-family:var(--ft-font) !important;
+  font-weight:600 !important;
+  letter-spacing:0.02em;
+  border-radius:2px !important;
+  border:1.5px solid transparent;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.sqs-block-button-element--primary{
+  background:var(--brass) !important;
+  color:#fff !important;
+}
+.sqs-block-button-element--primary:hover{ background:var(--brass-dark) !important; }
+
+.sqs-block-button-element--secondary{
+  background:transparent !important;
+  color:var(--navy) !important;
+  border-color:var(--bone-line) !important;
+}
+.sqs-block-button-element--secondary:hover{ border-color:var(--navy) !important; }
+
+/* On dark section themes the ghost button inverts to bone */
+[data-section-theme*="dark"] .sqs-block-button-element--secondary,
+.ft-on-dark .sqs-block-button-element--secondary{
+  color:var(--bone) !important;
+  border-color:rgba(233,228,216,0.4) !important;
+}
+[data-section-theme*="dark"] .sqs-block-button-element--secondary:hover,
+.ft-on-dark .sqs-block-button-element--secondary:hover{ border-color:var(--bone) !important; }
+
+/* Keyboard focus — accessibility */
+.sqs-block-button-element:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
+
+
+/* ═══ 3 · HEADER / NAVIGATION ════════════════════════════════════════════ */
+/* Sticky navy bar with blur. Squarespace header markup is stable across 7.1. */
+.header{
+  background:rgba(22,35,47,0.92) !important;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--navy-line);
+}
+/* Make the header text/links bone regardless of the theme set in Site Styles */
+.header-title-text a,
+.header-nav-item a,
+.header-nav-folder-title{
+  color:var(--bone) !important;
+  font-family:var(--ft-font) !important;
+  font-weight:500;
+  letter-spacing:0.01em;
+}
+.header-title-text a{ letter-spacing:0.2em; font-weight:500; }
+.header-nav-item a:hover{ color:#fff !important; }
+
+/* Phone number in the header (add it as a nav link or secondary button) */
+.header-actions a[href^="tel:"]{
+  font-family:var(--ft-mono) !important;
+  color:var(--brass) !important;
+  font-weight:600;
+  letter-spacing:0.04em;
+}
+/* Header primary CTA button */
+.header-actions .btn,
+.header-actions-action .sqs-block-button-element{
+  background:var(--brass) !important;
+  color:#fff !important;
+  border-radius:2px !important;
+}
+/* Mobile menu overlay → navy */
+.header-menu{ background:var(--navy) !important; }
+.header-menu-nav-item a{ color:var(--bone) !important; font-family:var(--ft-font) !important; }
+
+
+/* ═══ 4 · SECTION THEMING (navy / bone / graphite bands) ═════════════════ */
+/* TWO ways to color a band — use whichever fits:
+
+   A) SITE STYLES (recommended, fully native): In the editor set a section's
+      color theme to "Dark" (→ navy) or a light theme (→ bone). Then in
+      Site Styles → Colors, edit those themes to the brand hexes below. The
+      rules here nudge any dark/light theme toward brand as a safety net.
+
+   B) MARKER + :has()  (surgical, for one specific band): drop a Code Block
+      containing e.g. <span class="ft-band-navy"></span> into the section.
+      The CSS then paints just that section. Great when you don't want to
+      spend a whole Site Styles theme slot.                                   */
+
+/* --- A) theme safety net ------------------------------------------------- */
+[data-section-theme*="dark"]{ --ft-band:var(--navy); }
+[data-section-theme*="dark"] .section-background{ background:var(--navy) !important; }
+[data-section-theme*="dark"] :is(h1,h2,h3,h4,p,li){ color:var(--bone); }
+
+/* --- B) marker-driven bands (works even mid-page) ------------------------ */
+.page-section:has(.ft-band-navy)     .section-background{ background:var(--navy)     !important; }
+.page-section:has(.ft-band-navy2)    .section-background{ background:var(--navy-2)    !important; }
+.page-section:has(.ft-band-graphite) .section-background{ background:var(--graphite)  !important; }
+.page-section:has(.ft-band-bone)     .section-background{ background:var(--bone)      !important; }
+.page-section:has(.ft-band-bone2)    .section-background{ background:var(--bone-2)     !important; }
+
+/* Text color follows the band */
+.page-section:has(:is(.ft-band-navy,.ft-band-navy2,.ft-band-graphite)) :is(h1,h2,h3,h4){ color:var(--bone); }
+.page-section:has(:is(.ft-band-navy,.ft-band-navy2,.ft-band-graphite)) :is(p,li){ color:#9DB0C0; }
+.ft-band-navy,.ft-band-navy2,.ft-band-graphite,.ft-band-bone,.ft-band-bone2{ display:none; }
+
+
+/* ═══ 5 · NATIVE FORM BLOCK → "Request a walkthrough" quote form ═════════ */
+/* Put a native Form Block inside a NAVY section for the conversion form.
+   These rules make it read like the design-system quote card.               */
+[data-section-theme*="dark"] .form-wrapper,
+.page-section:has(.ft-band-navy) .form-wrapper,
+.page-section:has(.ft-band-navy2) .form-wrapper{
+  background:var(--navy-2);
+  border:1px solid var(--navy-line);
+  border-radius:4px;
+  padding:clamp(24px,3vw,36px);
+}
+.form-wrapper .field-list .title,
+.form-wrapper .form-item .title{
+  font-family:var(--ft-font);
+  font-size:13px; font-weight:600;
+  color:var(--bone) !important;
+  margin-bottom:6px;
+}
+.form-wrapper input,
+.form-wrapper select,
+.form-wrapper textarea{
+  font-family:var(--ft-font) !important;
+  font-size:15px !important;
+  color:var(--bone) !important;
+  background:var(--navy) !important;
+  border:1.5px solid var(--navy-line) !important;
+  border-radius:2px !important;
+  padding:12px 13px !important;
+}
+.form-wrapper input::placeholder,
+.form-wrapper textarea::placeholder{ color:#5F7488 !important; }
+.form-wrapper input:focus,
+.form-wrapper select:focus,
+.form-wrapper textarea:focus{
+  outline:none !important;
+  border-color:var(--brass) !important;
+  box-shadow:0 0 0 3px rgba(168,131,74,0.22) !important;
+}
+.form-wrapper .form-button-wrapper .sqs-system-button,
+.form-wrapper input[type="submit"]{
+  background:var(--brass) !important;
+  color:#fff !important;
+  font-family:var(--ft-font) !important;
+  font-weight:600 !important;
+  border-radius:2px !important;
+  width:100%;
+  padding:15px 26px !important;
+}
+.form-wrapper .form-button-wrapper .sqs-system-button:hover{ background:var(--brass-dark) !important; }
+
+
+/* ═══ 6 · NATIVE ACCORDION BLOCK → FAQ ═══════════════════════════════════ */
+/* Squarespace 7.1 Accordion block. If you'd rather hand-build the FAQ, use
+   the faq.html Code Block instead — this styles the native one.             */
+.accordion-item{ border-bottom:1px solid var(--bone-line) !important; }
+.accordion-item__title{
+  font-family:var(--ft-font) !important;
+  font-weight:600 !important;
+  font-size:17px !important;
+  color:var(--ink) !important;
+}
+.accordion-item__description,
+.accordion-item__description p{
+  font-family:var(--ft-font) !important;
+  font-size:15px !important;
+  line-height:1.65 !important;
+  color:var(--ink-soft) !important;
+}
+.accordion-icon{ color:var(--brass-dark) !important; }
+
+
+/* ═══ 7 · ft-* COMPONENTS (used inside Code Blocks) ══════════════════════ */
+/* Shared bits ------------------------------------------------------------- */
+.ft *{ box-sizing:border-box; }
+.ft-wrap{ max-width:var(--ft-maxw); margin:0 auto; }
+.ft-mono{ font-family:var(--ft-mono); }
+.ft-lig{ display:block; aspect-ratio:120/108; height:auto; }
+
+.ft-eyebrow{
+  font-family:var(--ft-mono); font-size:12px; font-weight:600;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--brass-dark);
+  display:inline-flex; align-items:center; gap:11px;
+}
+.ft-eyebrow::before{ content:""; width:22px; height:2px; background:currentColor; }
+.ft-on-dark .ft-eyebrow{ color:var(--brass); }
+
+/* Hero -------------------------------------------------------------------- */
+.ft-hero{ position:relative; color:var(--bone); }
+.ft-hero .ft-grid{
+  display:grid; grid-template-columns:1.15fr 0.85fr;
+  gap:clamp(30px,4vw,56px); align-items:center;
+}
+.ft-hero h1{
+  font-weight:800; font-size:clamp(40px,6vw,72px);
+  letter-spacing:-0.025em; line-height:0.98; margin:20px 0; color:var(--bone);
+}
+.ft-hero h1 em{ font-style:normal; color:var(--brass); }
+.ft-hero .ft-sub{ font-size:clamp(17px,1.6vw,20px); line-height:1.6; color:#9DB0C0; max-width:52ch; }
+.ft-hero .ft-assure{ display:flex; gap:22px; margin-top:34px; flex-wrap:wrap; }
+.ft-hero .ft-assure span{
+  font-family:var(--ft-mono); font-size:11.5px; letter-spacing:0.04em;
+  color:#8DA0B0; display:flex; align-items:center; gap:8px;
+}
+.ft-hero .ft-assure span::before{ content:"✓"; color:var(--brass); font-weight:700; }
+@media (max-width:920px){ .ft-hero .ft-grid{ grid-template-columns:1fr; } }
+
+/* Trust strip ------------------------------------------------------------- */
+.ft-trust{ display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; }
+.ft-trust .ft-lbl{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7d8790; }
+.ft-trust .ft-clients{ display:flex; gap:34px; flex-wrap:wrap; align-items:center; }
+.ft-trust .ft-clients span{ font-weight:700; font-size:17px; letter-spacing:0.02em; color:#9DB0C0; opacity:0.85; }
+
+/* Section head ------------------------------------------------------------ */
+.ft-sec-head{ max-width:64ch; margin-bottom:clamp(34px,4vw,54px); }
+.ft-sec-head h2{ font-size:clamp(30px,4vw,50px); margin:16px 0 14px; }
+.ft-sec-head p{ font-size:clamp(16px,1.4vw,19px); line-height:1.6; color:var(--ink-soft); }
+.ft-on-dark .ft-sec-head p{ color:#9DB0C0; }
+
+/* Services grid ----------------------------------------------------------- */
+.ft-svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,24px); }
+.ft-svc{
+  background:#fff; border:1px solid var(--bone-line); border-radius:3px;
+  padding:26px 26px 30px; transition:border-color .15s, transform .15s;
+}
+.ft-svc:hover{ border-color:var(--brass); transform:translateY(-3px); }
+.ft-svc .ft-ibadge{
+  width:50px; height:50px; border-radius:3px; background:var(--navy);
+  display:grid; place-items:center; color:var(--brass); margin-bottom:16px;
+}
+.ft-svc .ft-ibadge svg{ width:30px; height:30px; }
+.ft-svc .ft-n{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; color:var(--brass-dark); }
+.ft-svc h3{ font-size:22px; margin:12px 0 10px; }
+.ft-svc p{ font-size:15px; line-height:1.6; color:var(--ink-soft); }
+.ft-svc ul{ list-style:none; margin-top:16px; padding:0; display:flex; flex-direction:column; gap:9px; }
+.ft-svc li{ font-size:13.5px; color:var(--ink-soft); padding-left:20px; position:relative; }
+.ft-svc li::before{ content:"—"; position:absolute; left:0; color:var(--brass); }
+@media (max-width:860px){ .ft-svc-grid{ grid-template-columns:1fr; } }
+
+/* Who we serve — tag row -------------------------------------------------- */
+.ft-serve{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(30px,4vw,60px); align-items:center; }
+.ft-serve .ft-lead{ font-size:clamp(18px,2vw,24px); line-height:1.4; font-weight:600; letter-spacing:-0.01em; }
+.ft-serve .ft-lead b{ color:var(--brass-dark); }
+.ft-serve .ft-tags{ display:flex; flex-wrap:wrap; gap:12px; }
+.ft-serve .ft-tags span{ font-weight:600; font-size:15px; padding:11px 18px; border:1px solid var(--bone-line); border-radius:2px; background:#fff; }
+@media (max-width:860px){ .ft-serve{ grid-template-columns:1fr; } }
+
+/* Why us — stat grid ------------------------------------------------------ */
+.ft-feat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2vw,26px); }
+.ft-feat{ border-top:2px solid var(--brass); padding-top:20px; }
+.ft-feat .ft-big{ font-weight:800; font-size:40px; letter-spacing:-0.02em; line-height:1; color:var(--bone); }
+.ft-feat .ft-big.brass{ color:var(--brass); }
+.ft-feat h4{ font-weight:600; font-size:17px; margin:14px 0 8px; color:var(--bone); }
+.ft-feat p{ font-size:14px; line-height:1.55; color:#9DB0C0; }
+@media (max-width:960px){ .ft-feat-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .ft-feat-grid{ grid-template-columns:1fr; } }
+
+/* Process steps ----------------------------------------------------------- */
+.ft-steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2vw,22px); }
+.ft-step{ background:var(--navy-2); border:1px solid var(--navy-line); border-radius:3px; padding:26px 24px; }
+.ft-step .ft-sico{ color:var(--brass); margin-bottom:16px; }
+.ft-step .ft-sico svg{ width:30px; height:30px; }
+.ft-step .ft-n{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; color:var(--brass); }
+.ft-step h4{ font-weight:600; font-size:19px; margin:14px 0 9px; color:var(--bone); }
+.ft-step p{ font-size:14px; line-height:1.55; color:#9DB0C0; }
+@media (max-width:860px){ .ft-steps{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .ft-steps{ grid-template-columns:1fr; } }
+
+/* Testimonial ------------------------------------------------------------- */
+.ft-quote{ max-width:60ch; }
+.ft-quote .ft-q{ font-weight:700; font-size:clamp(24px,3.2vw,38px); letter-spacing:-0.018em; line-height:1.24; color:var(--bone); }
+.ft-quote .ft-q em{ font-style:normal; color:var(--brass); }
+.ft-quote .ft-by{ display:flex; align-items:center; gap:14px; margin-top:28px; }
+.ft-quote .ft-by b{ display:block; font-size:15px; color:var(--bone); }
+.ft-quote .ft-by span{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.06em; color:#8DA0B0; }
+
+/* Final CTA callout ------------------------------------------------------- */
+.ft-callout{
+  background:var(--brass); border-radius:4px; padding:clamp(34px,4.5vw,60px);
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+}
+.ft-callout h3{ font-weight:800; font-size:clamp(28px,3.6vw,44px); letter-spacing:-0.02em; line-height:1.02; color:#fff; max-width:18ch; }
+.ft-callout .ft-sub{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); margin-top:12px; }
+
+/* Footer (if built as a Code Block in the site footer) -------------------- */
+.ft-footer{ background:var(--graphite); color:var(--bone); }
+.ft-footer a{ color:#B9C5CE; }
+.ft-footer a:hover{ color:var(--bone); }
+.ft-footer h5{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass); }
+
+/* Sticky mobile action bar ------------------------------------------------ */
+.ft-mobactions{
+  display:none; position:fixed; left:0; right:0; bottom:0; z-index:9000;
+  background:var(--navy); border-top:1px solid var(--navy-line);
+  grid-template-columns:1fr 1fr 1.3fr;
+}
+.ft-mobactions a{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:15px 8px; font-weight:700; font-size:14px; color:var(--bone);
+  min-height:52px; text-decoration:none;
+}
+.ft-mobactions a + a{ border-left:1px solid var(--navy-line); }
+.ft-mobactions .ft-go{ background:var(--brass); color:#fff; }
+@media (max-width:768px){ .ft-mobactions{ display:grid; } }
+
+
+/* ═══ 8 · SCROLL-REVEAL + MOTION ═════════════════════════════════════════ */
+@media (prefers-reduced-motion:no-preference){
+  .ft-reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .ft-reveal.ft-in{ opacity:1; transform:none; }
+}
+
+
+/* ═══ 9 · UTILITIES + RESPONSIVE ═════════════════════════════════════════ */
+.ft-center{ text-align:center; }
+.ft-mt-s{ margin-top:14px; } .ft-mt-m{ margin-top:24px; } .ft-mt-l{ margin-top:36px; }
+
+/* Tighten Squarespace's default vertical section padding to match the
+   design system's rhythm (optional — remove if you prefer editor control). */
+.page-section .content-wrapper{ padding-top:clamp(60px,8vw,104px); padding-bottom:clamp(60px,8vw,104px); }
+
+/* Keep the page body clear of the sticky mobile bar */
+@media (max-width:768px){ #siteWrapper{ padding-bottom:52px; } }

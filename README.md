@@ -30,8 +30,9 @@ squarespace/
     footer-cta.html                 Navy contact band: copy left, native form right
     thank-you.html                  Branded post-submit page (form redirects here)
     buttons.html                    Copy library of every CTA button variant
-    services-page/                  /services page: hero, 3-pass rows, included
-                                    table, add-ons, FAQ, closing CTA
+    services-page/                  /services page (matches source design): hero,
+                                    scope bar, 3 core passes, specialty, packages,
+                                    assurances, how-it-works, CTA
 assets/final-touch-logo.svg         Upload as your Squarespace logo
 docs/
   IMPLEMENTATION-GUIDE.md           Build it, section by section

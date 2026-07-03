@@ -1,54 +1,56 @@
 # Final Touch Cleaning — Services Page Guide
 
-Builds the **/services** page on Squarespace 7.1 using the same kit as the
-homepage (`final-touch.css`, the `ft-` classes, section markers, and CTAs).
-Reconstructed from the brand system — if you paste your exact
-`Final Touch Cleaning - Services.html`, I'll reconcile the copy; the structure
-and styling below already match the system.
+Builds the **/services** page on Squarespace 7.1, matching your source design
+(`Final Touch Cleaning - Services.html`, decoded from the Claude Design export).
+Uses the same kit as the homepage (`final-touch.css`, the `ft-` classes, section
+markers, CTAs) plus the Services-page components in **§7b** of the CSS and the
+specialty icons added to `site-header.html`.
 
 > Prereqs: the Custom CSS and Code Injection from the main
-> `IMPLEMENTATION-GUIDE.md` are already installed site-wide. That's all this page
-> needs — no new CSS to paste.
+> `IMPLEMENTATION-GUIDE.md` are installed site-wide (the header injection now
+> includes the extra specialty icons — re-paste it if you added it before).
 
-## Page structure (top → bottom)
+## Page structure (top → bottom) — mirrors the source
 
 | # | Section (theme) | Paste this Code Block | Notes |
 |---|---|---|---|
-| 1 | **Hero** (Dark/navy) | `services-page/01-hero.html` | Optional background photo (interior/detail). CTAs built in. |
-| 2 | **The three passes** (Light/bone) | `02a-service-rough.html`, `02b-service-detail.html`, `02c-service-touchup.html` (text only) | For each pass, put the Code Block in one half of a Fluid-Engine row and drag a **native Image Block** into the other half — **your uploaded photo, no placeholder**. Alternate the image side each row (R, L, R). After pass 3, add a CTA pair from `buttons.html`. |
-| 3 | **What's included** (bone-2) | `services-page/03-included-table.html` | Add `<span id="included"></span>` at the top so the hero button jumps here. Table scrolls on mobile. |
-| 4 | **Specialty / add-ons** (Light/bone) | `services-page/04-addons.html` | Trim rows to match what you actually offer. |
-| 5 | **Process recap** (Dark/navy) | reuse `code-blocks/process.html` | Same 4-step protocol as the homepage — reinforces the method. |
-| 6 | **Services FAQ** (Light/bone) | `services-page/05-faq.html` | Accordion uses the toggle JS already in `site-footer.html`. |
-| 7 | **Closing CTA** (Dark/navy) | `services-page/06-cta.html` | Add `<span id="quote"></span>` at the top. Or reuse `footer-cta.html` + a Form Block for a full form here. |
+| 1 | **Hero** (Dark/navy) | `01-hero.html` | Breadcrumb, eyebrow, headline, intro, 2 CTAs, faint FL-map watermark |
+| 2 | **Scope jump bar** (Dark/graphite, thin) | `02-scopebar.html` | Pill sub-nav; jumps to the sections below |
+| 3 | **Core intro** (Light/bone) | `03-core-intro.html` | Section heading + `#core` anchor |
+| 3a–c | **The three passes** (same bone section) | `03a-core-rough.html`, `03b-core-detail.html`, `03c-core-touchup.html` | **Text only.** Put each block in one half of a Fluid-Engine row and drag your **own Image Block** into the other half. Alternate the image side (R, L, R). Each has a "What's included" checklist + a "Best for / You receive" pill. |
+| 4 | **Specialty work** (bone-2) | `04-specialty.html` | 6 cards with the source's dedicated icons (building, window, floor, broom-power, drop, calendar) |
+| 5 | **Packages** (Dark/navy) | `05-packages.html` | 3 tiers; middle = brass "Most booked" |
+| 6 | **What always comes with it** (Light/bone) | `06-assurances.html` | Shield / clipboard / chat |
+| 7 | **How it works** (bone-2) | `07-how-it-works.html` | 4 steps: Walkthrough → Firm quote → Schedule → Sign-off |
+| 8 | **CTA callout** (Light/bone) | `08-cta.html` | Brass callout + `#quote` anchor |
 
 Below the page, the site's graphite link footer (`footer.html`) shows as usual.
 
-## CTAs & anchors
-- Buttons on this page point to `#quote` (the closing CTA on this page) and
-  `#included`. Add the matching `<span id="…"></span>` markers at the tops of
-  those sections.
-- The closing CTA's primary button links to `/#contact` — the homepage footer
-  contact band with the full form. Change it to this page's own form if you add
-  one.
-
-## Nav
-Add **Services** to the header nav → link to `/services`. If you break services
-into their own pages later (`/rough-clean`, `/multi-family-turnover`), make this
-a folder — good for SEO (see `SEO-AEO-CHECKLIST.md`).
-
-## SEO (Page → Settings → SEO)
-- **Title:** `Post-Construction Cleaning Services for Florida Builders | Final Touch`
-- **Description:** `Rough clean, detail pass, and documented final touch-up for
-  custom homes and multi-family builds in Central Florida. Licensed & insured,
-  firm quote in 48 hours. (407) 984-8024.`
-- Give the three service photos descriptive alt text (see `IMAGES-GUIDE.md`).
-- Optional: add a `Service`-type schema block for this page, or extend the
-  `OfferCatalog` already in `site-header.html`.
+## Anchors (add a tiny Code Block `<span id="…"></span>` at each section top)
+The three-pass intro, specialty, packages, assurances, how-it-works, and CTA
+blocks already include their `id` spans. The scope bar links to
+`#core #specialty #packages #addons #how` and the CTAs to `#quote`. The CTA's
+"Request a walkthrough" points to `/#contact` (the homepage contact form) —
+change it to a Services-page form if you add one.
 
 ## Images
-The three service blocks are **text only** — you supply the photos by dropping a
-native Image Block beside each in Fluid Engine. Best fits from your uploads:
-rough → the concrete room with shoring props; detail → the arched-window
-interior; touch-up → a finished, styled interior once you have one. Full
-guidance in `IMAGES-GUIDE.md`.
+The three core passes are **text only** so you place your own photos — drag a
+native **Image Block** beside each. Best fits from your uploads: rough → the
+concrete room with shoring props; detail → the arched-window interior; touch-up
+→ a finished, styled interior once you have one. See `IMAGES-GUIDE.md`.
+
+## SEO (Page → Settings → SEO) — from the source file
+- **Title:** `Post-Construction Cleaning Services | Final Touch Cleaning`
+- **Description:** `Rough clean, detail pass, and documented final touch-up —
+  plus multi-family turnovers, window & glass restoration, floor care, and
+  pressure washing for Central Florida builders and GCs. Licensed & insured.`
+- The source page carries `Service` + `OfferCatalog` schema. Add it to this
+  page's **Page Header Code Injection** if you want the rich result (the JSON is
+  in the decoded source, or extend the `OfferCatalog` in `site-header.html`).
+
+## Note on fidelity
+The source page shows a photo beside each core pass (with an overlapping icon
+badge). Per your request, the three core blocks here are **text only** so you
+supply images directly in Squarespace — everything else (copy, checklists,
+pills, specialty icons, packages, assurances, how-it-works, CTA) matches the
+source one-to-one.

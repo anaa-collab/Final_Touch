@@ -523,45 +523,74 @@ a{ text-decoration:none; }
 @media (max-width:768px){ .ft-mobactions{ display:grid; } }
 
 
-/* ═══ 7b · SERVICES PAGE components ══════════════════════════════════════ */
-/* Detailed service block — TEXT ONLY (pair with a native Image Block) ------
-   Each service is its own text block. In a Fluid-Engine section, place the
-   block in one half and drag an Image Block into the other half; alternate the
-   image side row to row. No placeholder graphic — the space is yours. */
+/* ═══ 7b · SERVICES PAGE components (ported from the source design) ══════ */
+/* Scope jump bar — graphite pill sub-nav ---------------------------------- */
+.ft-scopebar{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.ft-scopebar .ft-lbl{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#7d8790; margin-right:12px; }
+.ft-scopebar a{ display:inline-flex; align-items:center; gap:9px; color:#B9C5CE; text-decoration:none; font-size:13.5px; font-weight:500; padding:8px 14px; border:1px solid #2E3033; border-radius:999px; transition:border-color .15s,color .15s; }
+.ft-scopebar a:hover{ color:var(--bone); border-color:var(--brass); }
+.ft-scopebar a svg{ width:17px; height:17px; color:var(--brass); }
+
+/* Core service block — TEXT ONLY (pair with your own native Image Block) --- */
 .ft-svc-item{ max-width:560px; }
-.ft-svc-item .ft-ibadge{ margin-bottom:18px; }
-.ft-svc-item .ft-num{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.16em; color:var(--brass-dark); }
-.ft-on-dark .ft-svc-item .ft-num{ color:var(--brass); }
-.ft-svc-item h3{ font-weight:700; font-size:clamp(24px,3vw,34px); letter-spacing:-0.015em; margin:12px 0 12px; }
-.ft-svc-item p{ font-size:16px; line-height:1.65; color:var(--ink-soft); }
-.ft-on-dark .ft-svc-item p{ color:#9DB0C0; }
-.ft-svc-item .ft-scope{ list-style:none; padding:0; margin:20px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:9px 20px; }
-.ft-svc-item .ft-scope li{ font-size:14px; color:var(--ink-soft); padding-left:20px; position:relative; }
-.ft-on-dark .ft-svc-item .ft-scope li{ color:#9DB0C0; }
-.ft-svc-item .ft-scope li::before{ content:"\2014"; position:absolute; left:0; color:var(--brass); }
-.ft-svc-item .ft-deliver{ margin-top:20px; font-family:var(--ft-mono); font-size:11.5px; letter-spacing:0.06em; color:var(--ink-soft); text-transform:uppercase; border-left:2px solid var(--brass); padding-left:12px; line-height:1.7; }
-.ft-on-dark .ft-svc-item .ft-deliver{ color:#8DA0B0; }
-@media (max-width:520px){ .ft-svc-item .ft-scope{ grid-template-columns:1fr; } }
+.ft-svc-item .ft-step-no{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.16em; color:var(--brass-dark); }
+.ft-on-dark .ft-svc-item .ft-step-no{ color:var(--brass); }
+.ft-svc-item h3{ font-weight:800; font-size:clamp(26px,3vw,38px); letter-spacing:-0.02em; line-height:1.04; margin:12px 0 14px; }
+.ft-svc-item .ft-desc{ font-size:16px; line-height:1.65; color:var(--ink-soft); }
+.ft-on-dark .ft-svc-item .ft-desc{ color:#9DB0C0; }
+.ft-svc-item .ft-incl{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#8a8577; margin:24px 0 12px; }
+.ft-checks{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; }
+.ft-checks li{ font-size:14.5px; color:var(--ink); padding-left:26px; position:relative; line-height:1.45; }
+.ft-on-dark .ft-checks li{ color:var(--bone); }
+.ft-checks li::before{ content:""; position:absolute; left:0; top:3px; width:16px; height:16px; border-radius:50%; background:var(--brass); -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat; mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat; }
+.ft-svc-item .ft-deliver{ margin-top:26px; display:inline-flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--bone-line); border-radius:3px; padding:13px 18px; }
+.ft-on-dark .ft-svc-item .ft-deliver{ background:var(--navy-2); border-color:var(--navy-line); }
+.ft-svc-item .ft-deliver .k{ font-family:var(--ft-mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass-dark); }
+.ft-on-dark .ft-svc-item .ft-deliver .k{ color:var(--brass); }
+.ft-svc-item .ft-deliver .v{ font-weight:600; font-size:14px; }
+.ft-on-dark .ft-svc-item .ft-deliver .v{ color:var(--bone); }
+@media (max-width:520px){ .ft-checks{ grid-template-columns:1fr; } }
 
-/* Add-on / specialty services grid --------------------------------------- */
-.ft-addons{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,20px); }
-.ft-addon{ background:#fff; border:1px solid var(--bone-line); border-radius:3px; padding:24px; transition:border-color .15s,transform .15s; }
-.ft-addon:hover{ border-color:var(--brass); transform:translateY(-2px); }
-.ft-addon .ft-ai{ color:var(--brass); margin-bottom:12px; }
-.ft-addon .ft-ai svg{ width:26px; height:26px; }
-.ft-addon h4{ font-weight:600; font-size:18px; letter-spacing:-0.01em; margin-bottom:7px; }
-.ft-addon p{ font-size:14px; line-height:1.6; color:var(--ink-soft); }
-@media (max-width:860px){ .ft-addons{ grid-template-columns:1fr 1fr; } }
-@media (max-width:520px){ .ft-addons{ grid-template-columns:1fr; } }
+/* Specialty / assurances grid --------------------------------------------- */
+.ft-spec-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,22px); }
+.ft-spec{ background:#fff; border:1px solid var(--bone-line); border-radius:3px; padding:28px 26px 30px; transition:border-color .15s,transform .15s; }
+.ft-spec:hover{ border-color:var(--brass); transform:translateY(-3px); }
+.ft-spec .ft-ico{ width:44px; height:44px; color:var(--brass); margin-bottom:18px; }
+.ft-spec .ft-ico svg{ width:44px; height:44px; }
+.ft-spec h4{ font-weight:700; font-size:19px; letter-spacing:-0.01em; margin-bottom:9px; }
+.ft-spec p{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); }
+@media (max-width:860px){ .ft-spec-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .ft-spec-grid{ grid-template-columns:1fr; } }
 
-/* "What's included" scope table ------------------------------------------ */
-.ft-tbl-wrap{ overflow-x:auto; }
-.ft-tbl{ width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--bone-line); border-radius:3px; overflow:hidden; min-width:560px; }
-.ft-tbl th{ text-align:left; font-family:var(--ft-mono); font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#8a8577; padding:14px 18px; background:#FBFAF6; border-bottom:1px solid var(--bone-line); }
-.ft-tbl td{ padding:14px 18px; font-size:14.5px; color:var(--ink); border-bottom:1px solid #EEEAE0; vertical-align:top; }
-.ft-tbl tr:last-child td{ border-bottom:0; }
-.ft-tbl td.ft-yes{ color:var(--brass-dark); font-family:var(--ft-mono); }
-.ft-tbl .ft-rowlbl{ font-weight:600; }
+/* Packages — pricing tiers (navy section, brass feature) ------------------ */
+.ft-pkg-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,22px); }
+.ft-pkg{ background:var(--navy-2); border:1px solid var(--navy-line); border-radius:4px; padding:30px 28px 34px; display:flex; flex-direction:column; }
+.ft-pkg.feature{ background:var(--brass); border-color:var(--brass); }
+.ft-pkg .tier{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass); }
+.ft-pkg.feature .tier{ color:rgba(255,255,255,0.85); }
+.ft-pkg h4{ font-weight:800; font-size:24px; letter-spacing:-0.01em; margin:10px 0 8px; color:var(--bone); }
+.ft-pkg.feature h4{ color:#fff; }
+.ft-pkg .for{ font-size:13.5px; color:#9DB0C0; min-height:40px; }
+.ft-pkg.feature .for{ color:rgba(255,255,255,0.9); }
+.ft-pkg ul{ list-style:none; margin:22px 0 0; padding:22px 0 0; display:flex; flex-direction:column; gap:11px; border-top:1px solid var(--navy-line); }
+.ft-pkg.feature ul{ border-color:rgba(255,255,255,0.28); }
+.ft-pkg li{ font-size:14px; color:#C7D2DB; padding-left:24px; position:relative; line-height:1.45; }
+.ft-pkg.feature li{ color:#fff; }
+.ft-pkg li::before{ content:"\2713"; position:absolute; left:0; color:var(--brass); font-weight:700; }
+.ft-pkg.feature li::before{ color:#fff; }
+.ft-pkg .tag{ align-self:flex-start; margin-bottom:18px; font-family:var(--ft-mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; background:rgba(255,255,255,0.16); color:#fff; padding:5px 11px; border-radius:999px; }
+@media (max-width:860px){ .ft-pkg-grid{ grid-template-columns:1fr; } }
+
+/* How it works — mini steps (white cards on bone-2) ----------------------- */
+.ft-hiw{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2vw,22px); }
+.ft-hiw-step{ background:#fff; border:1px solid var(--bone-line); border-radius:3px; padding:26px 24px; }
+.ft-hiw-step .ft-sico{ color:var(--brass); margin-bottom:16px; }
+.ft-hiw-step .ft-sico svg{ width:30px; height:30px; }
+.ft-hiw-step .ft-n{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; color:var(--brass-dark); }
+.ft-hiw-step h4{ font-weight:700; font-size:18px; margin:12px 0 8px; }
+.ft-hiw-step p{ font-size:14px; line-height:1.55; color:var(--ink-soft); }
+@media (max-width:860px){ .ft-hiw{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .ft-hiw{ grid-template-columns:1fr; } }
 
 /* ═══ 8 · SCROLL-REVEAL + MOTION ═════════════════════════════════════════ */
 @media (prefers-reduced-motion:no-preference){

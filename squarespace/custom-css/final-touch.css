@@ -224,6 +224,67 @@ a{ text-decoration:none; }
 }
 .form-wrapper .form-button-wrapper .sqs-system-button:hover{ background:var(--brass-dark) !important; }
 
+/* --- TWO-COLUMN field layout -------------------------------------------------
+   Grids the field list so fields pair up (Name | Company, Phone | Email, …).
+   Scoped to the dark/footer contexts where the quote forms live so it won't
+   touch a stray single-field form elsewhere. The textarea (Notes) and any
+   address / name / section-header field span the full width automatically. */
+[data-section-theme*="dark"] .form-wrapper .field-list,
+.page-section:has(.ft-band-navy) .form-wrapper .field-list,
+.page-section:has(.ft-band-navy2) .form-wrapper .field-list,
+.page-section:has(.ft-footer-cta) .form-wrapper .field-list,
+#footer-sections .form-wrapper .field-list,
+.sqs-footer-section .form-wrapper .field-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px 20px;
+  align-items:start;
+}
+/* reset Squarespace's per-field margins so the grid gap controls spacing */
+[data-section-theme*="dark"] .form-wrapper .field-list > .form-item,
+.page-section:has(.ft-band-navy) .form-wrapper .field-list > .form-item,
+.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item,
+#footer-sections .form-wrapper .field-list > .form-item{ margin:0; }
+/* full-width fields */
+[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.textarea,
+[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.section,
+[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.address,
+[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.name,
+.page-section:has(.ft-band-navy) .form-wrapper .field-list > .form-item.textarea,
+.page-section:has(.ft-band-navy) .form-wrapper .field-list > .form-item.section,
+.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.textarea,
+.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.section,
+.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.address,
+.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.name,
+#footer-sections .form-wrapper .field-list > .form-item.textarea{ grid-column:1 / -1; }
+/* stack to one column on small screens */
+@media (max-width:600px){
+  [data-section-theme*="dark"] .form-wrapper .field-list,
+  .page-section:has(.ft-band-navy) .form-wrapper .field-list,
+  .page-section:has(.ft-footer-cta) .form-wrapper .field-list,
+  #footer-sections .form-wrapper .field-list{ grid-template-columns:1fr; }
+}
+
+/* --- MICRO TEXT under the submit button --------------------------------------
+   Squarespace has no field for this, so we inject it after the button wrapper.
+   Edit the text in the content:"" below. (For a clickable phone number instead,
+   use a native Text Block under the Form Block — CSS content can't hold links.) */
+[data-section-theme*="dark"] .form-wrapper .form-button-wrapper::after,
+.page-section:has(.ft-band-navy) .form-wrapper .form-button-wrapper::after,
+.page-section:has(.ft-footer-cta) .form-wrapper .form-button-wrapper::after,
+#footer-sections .form-wrapper .form-button-wrapper::after{
+  content:"We call within one business day · We walk the site · Firm quote in 48 hours";
+  display:block;
+  margin-top:14px;
+  font-family:var(--ft-mono);
+  font-size:11px;
+  letter-spacing:0.04em;
+  line-height:1.8;
+  text-transform:uppercase;
+  color:#8DA0B0;
+  text-align:center;
+}
+
 
 /* ═══ 6 · NATIVE ACCORDION BLOCK → FAQ ═══════════════════════════════════ */
 /* Squarespace 7.1 Accordion block. If you'd rather hand-build the FAQ, use

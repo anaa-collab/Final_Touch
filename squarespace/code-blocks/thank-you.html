@@ -1,0 +1,44 @@
+<!-- ============================================================================
+     THANK-YOU / POST-SUBMIT PAGE
+     ----------------------------------------------------------------------------
+     Squarespace's inline post-submit message doesn't accept custom HTML, so the
+     clean way to add real HTML (and conversion tracking) is a dedicated page:
+       1) Create a page, e.g. /thank-you  (hide it from navigation).
+       2) Add ONE section, theme DARK (→ navy), and paste this into a Code Block.
+       3) In each Form Block → After submit → choose "Redirect to URL" → /thank-you
+       4) (Optional) Put your Google Ads / GA4 conversion snippet in that page's
+          Page Header Code Injection — a redirect page fires it reliably.
+     Everything here is editable. ============================================= -->
+<div class="ft ft-on-dark" style="text-align:center">
+  <span class="ft-band-navy"></span>
+  <div class="ft-reveal" style="max-width:620px;margin:0 auto">
+    <div style="width:66px;height:66px;border-radius:50%;background:var(--navy-2);border:1px solid var(--navy-line);display:grid;place-items:center;margin:0 auto 24px">
+      <svg class="ft-lig" style="width:26px;color:var(--brass)"><use href="#ftlig"/></svg>
+    </div>
+
+    <span class="ft-eyebrow" style="justify-content:center">Request received</span>
+    <h1 style="font-weight:800;font-size:clamp(32px,4.5vw,52px);letter-spacing:-0.02em;line-height:1.02;color:var(--bone);margin:16px 0 14px">Got it — we're on it.</h1>
+    <p style="font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:#9DB0C0;max-width:48ch;margin:0 auto">
+      Thanks for the details. We'll call within one business day to line up your
+      walkthrough — and you'll have a firm quote within 48 hours of us seeing the site.
+    </p>
+
+    <!-- What happens next -->
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:30px 0 8px">
+      <span class="ft-mono" style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--navy-line);border-radius:2px;padding:9px 14px">1 · We call you</span>
+      <span class="ft-mono" style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--navy-line);border-radius:2px;padding:9px 14px">2 · We walk the site</span>
+      <span class="ft-mono" style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--navy-line);border-radius:2px;padding:9px 14px">3 · Firm quote in 48h</span>
+    </div>
+
+    <!-- Need it faster -->
+    <p style="font-family:var(--ft-mono);font-size:13px;letter-spacing:0.03em;color:#8DA0B0;margin-top:26px">
+      Need it faster? Call or text
+      <a href="tel:+14079848024" style="color:var(--brass);text-decoration:none;font-weight:600">(407) 984-8024</a>
+    </p>
+
+    <div class="ft-actions" style="justify-content:center;margin-top:26px">
+      <a class="ft-btn ft-btn-primary" href="/">Back to home</a>
+      <a class="ft-btn ft-btn-ghost" href="#work">See recent work</a>
+    </div>
+  </div>
+</div>

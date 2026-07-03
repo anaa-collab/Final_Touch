@@ -28,6 +28,7 @@ squarespace/
     why-us-stats.html  process.html  testimonial.html  faq.html
     final-cta.html  footer.html  sticky-mobile-cta.html
     footer-cta.html                 Navy contact band: copy left, native form right
+    thank-you.html                  Branded post-submit page (form redirects here)
     buttons.html                    Copy library of every CTA button variant
 assets/final-touch-logo.svg         Upload as your Squarespace logo
 docs/

@@ -159,12 +159,22 @@ sitting just above the graphite link footer.
    **Project type** (dropdown: Custom home – final clean / Multi-family turnover /
    Rough clean (mid-build) / Remodel – final detail) · **Approx. sq ft** ·
    **Notes**.
-2. **Storage:** connect to email + Google Sheets (Form Block → Storage). Add a
+2. **Two columns + micro text — automatic.** The Custom CSS grids the field list
+   (Name | Company, Phone | Email, Project type | Sq ft; Notes spans full width)
+   and injects the micro-line under the submit button ("We call within one
+   business day · We walk the site · Firm quote in 48 hours"). Change that line
+   in the CSS `.form-button-wrapper::after` rule. Stacks to one column on mobile.
+3. **Storage:** connect to email + Google Sheets (Form Block → Storage). Add a
    notification to your phone/email so no lead sits.
-3. **Post-submit message:** "Got it — we're on it. We'll call within one
+4. **After submit → redirect to a Thank-You page.** Squarespace's inline message
+   won't take custom HTML, so set the Form Block → *After submit → Redirect to
+   URL → `/thank-you`* and build that page from `code-blocks/thank-you.html`
+   (hide it from nav). That page is also the reliable place to fire a Google Ads
+   / GA4 conversion tag (Thank-You page → Page Header Code Injection). Prefer no
+   extra page? Inline message: "Got it — we're on it. We'll call within one
    business day to schedule your walkthrough. Need it faster? Call or text
    (407) 984-8024."
-4. The `.form-wrapper` CSS already makes inputs navy with a brass focus ring and
+5. The `.form-wrapper` CSS already makes inputs navy with a brass focus ring and
    a full-width brass submit button — no extra work.
 
 > **Faster alternative:** embed **Calendly** (a "Walkthrough" event type) so

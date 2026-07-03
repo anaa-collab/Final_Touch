@@ -29,8 +29,10 @@
       Serving Central Florida builders &amp; GCs since 2019
     </div>
 
-    <!-- Optional: paste this under the Form Block on the right instead, as a
-         Text Block, so it reads right after the submit button. -->
+    <!-- NOTE: the "what happens next" micro-line is now auto-added under the
+         form's submit button by the Custom CSS (.form-button-wrapper::after).
+         Keep this left-column version ONLY if you want it here too — otherwise
+         delete this <p> to avoid saying it twice. -->
     <p class="ft-next"><b>WHAT HAPPENS NEXT →</b> WE CALL WITHIN ONE BUSINESS DAY · WALK THE SITE · FIRM QUOTE IN 48H</p>
   </div>
 </div>
@@ -49,9 +51,15 @@
        • Approx. sq ft   (text)            → "e.g. 6400"
        • Notes           (textarea)        → "Gate code, super's contact, punch-list link…"
      Submit button label:  Request my walkthrough
-     Post-submit message:  Got it — we're on it. We'll call within one business
-       day to schedule your walkthrough. Need it faster? Call or text
-       (407) 984-8024 now.
+       (micro text under it — "We call within one business day · We walk the
+        site · Firm quote in 48 hours" — is added by the Custom CSS, edit it
+        there in the .form-button-wrapper::after rule.)
+     After submit:  choose "Redirect to URL" → /thank-you  (build that page
+       from code-blocks/thank-you.html). Prefer a simple inline message instead?
+       "Got it — we're on it. We'll call within one business day to schedule your
+        walkthrough. Need it faster? Call or text (407) 984-8024 now."
+     Two-column fields: automatic — the Custom CSS grids the field list so
+       Name|Company, Phone|Email, Project type|Sq ft pair up and Notes spans full.
      Storage: connect Email + Google Sheets, and add a phone/email notification
        so no lead sits.
      ──────────────────────────────────────────────────────────────────────── -->

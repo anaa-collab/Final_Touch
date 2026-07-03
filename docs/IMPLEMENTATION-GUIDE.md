@@ -75,13 +75,13 @@ the editor preview honest.
 
 | # | Section (theme) | Paste this Code Block | Add these native blocks |
 |---|---|---|---|
-| 1 | **Hero** (Dark/navy) | `code-blocks/hero.html` | Buttons are **already in the block** (Request a walkthrough / See our process) — just edit labels + links. Optionally swap the visual placeholder for an **Image Block**. |
+| 1 | **Hero** (Dark/navy) | `code-blocks/hero.html` | Set the **section Background → Image** to the night-skyline photo (the CSS overlays a navy gradient). Copy + buttons sit on top — no image box beside the text. See `IMAGES-GUIDE.md`. |
 | 2 | **Trust strip** (Dark/graphite, thin) | `code-blocks/trust-strip.html` | Optional: small Image Blocks of real client logos |
 | 3 | **Services** (Light/bone) | `code-blocks/services.html` | Optional Image Blocks above each card |
 | 4 | **Who we serve** (bone-2) | `code-blocks/who-we-serve.html` | — |
 | 5 | **Why us** (Dark/navy) | `code-blocks/why-us-stats.html` | — |
 | 6 | **Process** (Dark/navy) | `code-blocks/process.html` | — |
-| 7 | **Recent work** (Light/bone) | — | **Gallery Section** (native) — set to a grid; upload before/after project photos |
+| 7 | **Recent work** (Light/bone) | — | **Gallery Section** (native) — set to a grid; upload before/after project photos (see `IMAGES-GUIDE.md`) |
 | 8 | **Testimonial** (Dark/navy) | `code-blocks/testimonial.html` | Replace with a real quote ASAP |
 | 9 | **FAQ** (Light/bone) | `code-blocks/faq.html` *or* native **Accordion block** | — |
 | 10 | **Get a quote** (Dark/navy) | Left: a Text Block headline (see Copy Bank). Right: **Form Block** | The CSS styles the Form Block into the navy quote card |
@@ -141,6 +141,14 @@ Then your buttons/links to `#quote` scroll there.
 > builders self-book. Add it as an Embed Block in the same section.
 
 ---
+
+## 3b · Images
+Add real photos natively so they load fast and rank. Full mapping (which photo
+goes where), alt text, and the brand treatment are in **`docs/IMAGES-GUIDE.md`**.
+The short version: **hero = night-skyline as a section background image**
+(gradient is automatic); **Recent Work = native Gallery Section**; drag native
+**Image Blocks** into other sections as accents. Skip the mop-bucket shot — it
+reads "maid service," which is off-brand.
 
 ## 4 · Mobile + accessibility pass
 

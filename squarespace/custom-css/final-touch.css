@@ -307,6 +307,32 @@ a{ text-decoration:none; }
 }
 .ft-hero .ft-assure span::before{ content:"✓"; color:var(--brass); font-weight:700; }
 @media (max-width:920px){ .ft-hero .ft-grid{ grid-template-columns:1fr; } }
+/* Single-column hero that sits over a section BACKGROUND IMAGE */
+.ft-hero .ft-inner{ max-width:660px; }
+
+/* HERO BACKGROUND-IMAGE TREATMENT ---------------------------------------
+   Put the photo on the section (Edit section → Background → Image), then this
+   lays a navy gradient over it so bone text stays legible. Navy base shows if
+   no image is set. Marker: .ft-hero-bg (used by hero.html).                */
+.page-section:has(.ft-hero-bg) .section-background{ background:var(--navy); }
+.page-section:has(.ft-hero-bg) .section-background::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(22,35,47,0.93) 0%, rgba(22,35,47,0.86) 42%, rgba(22,35,47,0.55) 100%);
+}
+@media (max-width:768px){
+  .page-section:has(.ft-hero-bg) .section-background::after{
+    background:linear-gradient(180deg, rgba(22,35,47,0.80) 0%, rgba(22,35,47,0.88) 100%);
+  }
+}
+.ft-hero-bg{ display:none; }
+
+/* Generic image-with-navy-overlay for any OTHER section background photo
+   (e.g. a "who we serve" or CTA band). Marker: .ft-band-photo             */
+.page-section:has(.ft-band-photo) .section-background::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:rgba(22,35,47,0.72);
+}
+.ft-band-photo{ display:none; }
 
 /* Trust strip ------------------------------------------------------------- */
 .ft-trust{ display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap; }

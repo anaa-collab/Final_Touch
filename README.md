@@ -32,6 +32,7 @@ assets/final-touch-logo.svg         Upload as your Squarespace logo
 docs/
   IMPLEMENTATION-GUIDE.md           Build it, section by section
   COPY-BANK.md                      Humanized, conversion-tuned copy + the "why"
+  IMAGES-GUIDE.md                   Which photo goes where, alt text, treatment
   SEO-AEO-CHECKLIST.md              Titles, schema, local SEO, AEO, GBP
 ```
 

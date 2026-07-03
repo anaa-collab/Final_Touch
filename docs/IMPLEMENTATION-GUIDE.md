@@ -46,9 +46,22 @@ for you) or an embed (Calendly / Typeform). This guide uses the native Form Bloc
 ### 1c. Code Injection
 - **Settings → Advanced → Code Injection → HEADER:** paste
   `squarespace/code-injection/site-header.html`
-  (fonts, `theme-color`, the reusable SVG symbols, and `LocalBusiness` schema).
+  (fonts, `theme-color`, the reusable SVG icon sprite, and `LocalBusiness` schema).
   → If you keep the `<link>` fonts here, **delete the `@import` line** at the top
   of the Custom CSS (don't load fonts twice).
+  → **If you ever change the icon set, RE-PASTE this whole block.** The SVG
+  sprite defines every `#ic-…` symbol the pages draw with `<use>`; a code block
+  can only show an icon whose symbol is present here. (The Services page added 8
+  specialty icons — building, window, floor, drop, broom-power, shield, calendar,
+  chat — so re-paste if your icons render blank.)
+
+> **Icons rendering blank?** The symbol isn't on the page. 99% of the time the
+> header injection is an older copy — re-paste `site-header.html` and hard-refresh
+> (Cmd/Ctrl+Shift+R). To confirm: view page source and search for `ic-building`;
+> if it's missing, the injection is stale. Fallback if your template strips SVG
+> from `<head>`: move just the `<svg …><defs>…</defs></svg>` sprite out of the
+> header block and paste it into the **Footer** injection instead (it renders in
+> `<body>`, which is bulletproof).
 - **Settings → Advanced → Code Injection → FOOTER:** paste
   `squarespace/code-injection/site-footer.html` (scroll-reveal + FAQ toggle JS),
   then paste `squarespace/code-blocks/sticky-mobile-cta.html` right below it so

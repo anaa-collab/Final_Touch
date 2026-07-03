@@ -176,7 +176,10 @@ a{ text-decoration:none; }
    These rules make it read like the design-system quote card.               */
 [data-section-theme*="dark"] .form-wrapper,
 .page-section:has(.ft-band-navy) .form-wrapper,
-.page-section:has(.ft-band-navy2) .form-wrapper{
+.page-section:has(.ft-band-navy2) .form-wrapper,
+.page-section:has(.ft-footer-cta) .form-wrapper,
+#footer-sections .form-wrapper,
+.sqs-footer-section .form-wrapper{
   background:var(--navy-2);
   border:1px solid var(--navy-line);
   border-radius:4px;
@@ -410,6 +413,23 @@ a{ text-decoration:none; }
 }
 .ft-callout h3{ font-weight:800; font-size:clamp(28px,3.6vw,44px); letter-spacing:-0.02em; line-height:1.02; color:#fff; max-width:18ch; }
 .ft-callout .ft-sub{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); margin-top:12px; }
+
+/* Footer CONTACT BAND — left copy + right form (navy final section) ------- */
+/* Layout note: in a Fluid-Engine section, place THIS code block on the left
+   half and a native Form Block on the right half — Squarespace handles the two
+   columns. The grid below is only used if you keep copy + a form embed in ONE
+   block. The form itself is styled by §5 (it turns into the navy quote card). */
+.ft-footer-cta{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,60px); align-items:start; }
+@media (max-width:900px){ .ft-footer-cta{ grid-template-columns:1fr; } }
+.ft-footer-cta h3{ font-weight:800; font-size:clamp(28px,4vw,44px); letter-spacing:-0.02em; line-height:1.02; color:var(--bone); margin:14px 0; }
+.ft-footer-cta .ft-loss{ font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:#9DB0C0; max-width:44ch; }
+.ft-footer-cta .ft-direct{ margin-top:26px; display:flex; flex-direction:column; gap:10px; }
+.ft-footer-cta .ft-direct a{ font-family:var(--ft-mono); font-size:15px; font-weight:600; letter-spacing:0.03em; color:var(--brass); text-decoration:none; }
+.ft-footer-cta .ft-direct a:hover{ color:var(--bone); }
+.ft-footer-cta .ft-trust-line{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#8DA0B0; margin-top:22px; line-height:1.9; }
+/* "What happens next" microcopy — place under the form (or the copy) */
+.ft-next{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.04em; line-height:1.9; color:#8DA0B0; margin-top:18px; }
+.ft-next b{ color:var(--brass); }
 
 /* Footer (if built as a Code Block in the site footer) -------------------- */
 .ft-footer{ background:var(--graphite); color:var(--bone); }

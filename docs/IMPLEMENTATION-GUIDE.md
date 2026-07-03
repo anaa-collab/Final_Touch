@@ -84,7 +84,7 @@ the editor preview honest.
 | 7 | **Recent work** (Light/bone) | — | **Gallery Section** (native) — set to a grid; upload before/after project photos (see `IMAGES-GUIDE.md`) |
 | 8 | **Testimonial** (Dark/navy) | `code-blocks/testimonial.html` | Replace with a real quote ASAP |
 | 9 | **FAQ** (Light/bone) | `code-blocks/faq.html` *or* native **Accordion block** | — |
-| 10 | **Get a quote** (Dark/navy) | Left: a Text Block headline (see Copy Bank). Right: **Form Block** | The CSS styles the Form Block into the navy quote card |
+| 10 | **Footer contact band** (Dark/navy) | Left: `code-blocks/footer-cta.html` | Right: a native **Form Block** — auto-styles into the navy quote card. Add `<span id="quote"></span>` at the top so every CTA scrolls here. |
 | 11 | **Final CTA** (Light/bone) | `code-blocks/final-cta.html` | — |
 
 **Footer:** Edit Footer → add a Code Block → paste `code-blocks/footer.html`
@@ -122,9 +122,21 @@ Then your buttons/links to `#quote` scroll there.
 
 ---
 
-## 3 · The quote form (conversion centerpiece)
+## 3 · The footer contact band + quote form (conversion centerpiece)
 
-1. In section 10, add a **Form Block**. Fields, in order:
+This is the bottom-of-page **navy band: copy on the left, form on the right**,
+sitting just above the graphite link footer.
+
+- **Left half:** paste `code-blocks/footer-cta.html` (headline, copy, direct
+  call/text/email, trust line — all editable).
+- **Right half:** add a native **Form Block**. Because the section theme is Dark
+  (or it carries the `.ft-footer-cta` marker), the Custom CSS turns the form into
+  the navy quote card automatically — navy inputs, brass focus ring, full-width
+  brass submit button. No form styling work on your end.
+- In Fluid Engine, just drop the two blocks side by side; Squarespace handles the
+  two columns and stacks them on mobile.
+
+**Form Block fields, in order:**
    **Name** · **Company** · **Phone** (required) · **Email** ·
    **Project type** (dropdown: Custom home – final clean / Multi-family turnover /
    Rough clean (mid-build) / Remodel – final detail) · **Approx. sq ft** ·

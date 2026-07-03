@@ -27,6 +27,7 @@ squarespace/
     hero.html  trust-strip.html  services.html  who-we-serve.html
     why-us-stats.html  process.html  testimonial.html  faq.html
     final-cta.html  footer.html  sticky-mobile-cta.html
+    footer-cta.html                 Navy contact band: copy left, native form right
     buttons.html                    Copy library of every CTA button variant
 assets/final-touch-logo.svg         Upload as your Squarespace logo
 docs/

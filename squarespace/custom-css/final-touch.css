@@ -321,6 +321,15 @@ a{ text-decoration:none; }
 .ft-eyebrow::before{ content:""; width:22px; height:2px; background:currentColor; }
 .ft-on-dark .ft-eyebrow{ color:var(--brass); }
 
+/* Signature photo placeholder — matches the homepage .photo diagonal hatch.
+   Use on any element that will become a real Image Block later; keeps
+   placeholders on-brand and identical across pages. */
+.ft-photo{ position:relative; overflow:hidden; background:repeating-linear-gradient(115deg,#d4cebe 0 3px,#c8c1af 3px 4px,#d4cebe 4px 46px); }
+.ft-photo.navy{ background:repeating-linear-gradient(115deg,#233648 0 3px,#1a2939 3px 4px,#233648 4px 46px); }
+.ft-photo > .ft-cap{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:20px; font-family:var(--ft-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#726c5f; }
+.ft-photo.navy > .ft-cap{ color:#8fa0ac; }
+.ft-photo > .ft-ptag{ position:absolute; left:14px; bottom:14px; background:var(--brass); color:#fff; font-family:var(--ft-mono); font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; padding:5px 10px; }
+
 /* Buttons — self-contained, for use INSIDE Code Blocks -------------------- */
 /* (Squarespace's native button blocks are styled in §2; these are for the
    hand-built hero/CTA buttons so they render instantly with no extra block.) */
@@ -518,9 +527,8 @@ a{ text-decoration:none; }
 /* Detailed alternating service rows (text + media) ------------------------ */
 .ft-svc-rows > .ft-svc-row + .ft-svc-row{ margin-top:clamp(40px,6vw,84px); }
 .ft-svc-row{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,64px); align-items:center; }
-.ft-svc-row .ft-media{ aspect-ratio:4/3; border-radius:4px; overflow:hidden; background:repeating-linear-gradient(115deg,#d4cebe 0 3px,#c8c1af 3px 4px,#d4cebe 4px 46px); display:grid; place-items:center; }
-.ft-svc-row .ft-media.navy{ background:repeating-linear-gradient(115deg,#233648 0 3px,#1a2939 3px 4px,#233648 4px 46px); }
-.ft-svc-row .ft-media .ft-cap{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#726c5f; text-align:center; padding:16px; }
+.ft-svc-row .ft-media{ position:relative; aspect-ratio:4/3; border-radius:4px; overflow:hidden; }
+.ft-svc-row .ft-media .ft-ibadge{ position:absolute; left:16px; top:16px; z-index:2; margin:0; box-shadow:0 8px 18px rgba(11,24,37,0.28); }
 .ft-svc-row.reverse .ft-media{ order:-1; }
 .ft-svc-row .ft-num{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.16em; color:var(--brass-dark); }
 .ft-on-dark .ft-svc-row .ft-num{ color:var(--brass); }

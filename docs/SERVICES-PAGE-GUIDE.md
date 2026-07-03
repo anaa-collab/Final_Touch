@@ -7,8 +7,11 @@ markers, CTAs) plus the Services-page components in **§7b** of the CSS and the
 specialty icons added to `site-header.html`.
 
 > Prereqs: the Custom CSS and Code Injection from the main
-> `IMPLEMENTATION-GUIDE.md` are installed site-wide (the header injection now
-> includes the extra specialty icons — re-paste it if you added it before).
+> `IMPLEMENTATION-GUIDE.md` are installed site-wide.
+>
+> **Icons are now inlined** in every code block (no shared SVG sprite dependency),
+> so all the specialty / how-it-works / assurance icons render on their own — the
+> earlier "blank icons" issue is fixed. Just paste the blocks.
 
 ## Page structure (top → bottom) — mirrors the source
 

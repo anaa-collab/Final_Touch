@@ -6,9 +6,12 @@ Uses the shared kit plus the Work components in **§7c** of the CSS, the `ic-sta
 icon added to `site-header.html`, and the before/after slider JS in
 `site-footer.html`.
 
-> Prereqs: re-paste the updated **Header injection** (`site-header.html` — now
-> includes `ic-star`) and **Footer injection** (`site-footer.html` — now includes
-> the slider script). Then hard-refresh.
+> Prereqs: re-paste the updated **Footer injection** (`site-footer.html` — now
+> includes the before/after slider script), then hard-refresh.
+>
+> **Icons are now inlined** directly in every code block (no shared sprite to
+> keep in sync), so they render regardless of your header injection — this fixes
+> the earlier "blank icons" issue for good.
 
 ## Page structure (top → bottom) — mirrors the source
 

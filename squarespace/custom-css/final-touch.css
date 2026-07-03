@@ -284,6 +284,9 @@ a{ text-decoration:none; }
 /* Ghost on a brass callout */
 .ft-btn-onbrass{ background:transparent; color:#fff; border-color:rgba(255,255,255,0.6); }
 .ft-btn-onbrass:hover{ border-color:#fff; color:#fff; }
+/* Small uppercase lead-in line that can sit before a CTA row */
+.ft-cta-note{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); align-self:center; }
+.ft-on-dark .ft-cta-note{ color:#8DA0B0; }
 
 /* Hero -------------------------------------------------------------------- */
 .ft-hero{ position:relative; color:var(--bone); }

@@ -90,6 +90,15 @@ the editor preview honest.
 **Footer:** Edit Footer → add a Code Block → paste `code-blocks/footer.html`
 (or rebuild with native blocks; the `.ft-footer` CSS styles either).
 
+> **CTAs are built into every content block.** Hero, Services, Who-we-serve,
+> Why-us, Process, Testimonial, FAQ, and the Final CTA each ship with their own
+> section-appropriate button(s) — edit the label and `href` in the block. Two
+> deliberate exceptions: the **Trust strip** stays CTA-free (it's a credibility
+> bar right under the hero's buttons — a second button there competes and reads
+> pushy), and the **Recent-work Gallery** is native, so drop a pair from
+> `code-blocks/buttons.html` beneath it if you want a CTA there. The **Get-a-
+> quote** section's CTA is the form's own submit button.
+
 ### Buttons & CTAs
 You have two ways to place calls-to-action — mix them freely:
 1. **Baked into the Code Blocks** (already done for the Hero and Final CTA).

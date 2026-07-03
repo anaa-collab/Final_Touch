@@ -33,12 +33,16 @@ squarespace/
     services-page/                  /services page (matches source design): hero,
                                     scope bar, 3 core passes, specialty, packages,
                                     assurances, how-it-works, CTA
+    work-page/                      /work portfolio (matches source): hero+ribbon,
+                                    before/after sliders, project grid,
+                                    testimonials, sign-off artifact, logos, CTA
 assets/final-touch-logo.svg         Upload as your Squarespace logo
 docs/
   IMPLEMENTATION-GUIDE.md           Build it, section by section
   COPY-BANK.md                      Humanized, conversion-tuned copy + the "why"
   IMAGES-GUIDE.md                   Which photo goes where, alt text, treatment
   SERVICES-PAGE-GUIDE.md            Build the /services page, section by section
+  WORK-PAGE-GUIDE.md                Build the /work portfolio page + add images
   SEO-AEO-CHECKLIST.md              Titles, schema, local SEO, AEO, GBP
 ```
 

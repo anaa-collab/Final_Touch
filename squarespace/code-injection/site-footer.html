@@ -19,7 +19,24 @@
     document.querySelectorAll('.ft-reveal').forEach(function (el) { el.classList.add('ft-in'); });
   }
 
-  /* 2 · FAQ accordion (only if you use the faq.html Code Block, not the
+  /* 2 · Before/after sliders (Work page). Drag the handle or the range input
+     to wipe between the two images. Runs only if a slider is on the page. */
+  document.querySelectorAll('.ft-ba').forEach(function (ba) {
+    var before = ba.querySelector('.before');
+    var divider = ba.querySelector('.divider');
+    var handle = ba.querySelector('.handle');
+    var range = ba.querySelector('input[type=range]');
+    if (!before || !range) return;
+    function set(v) {
+      before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
+      if (divider) divider.style.left = v + '%';
+      if (handle) handle.style.left = v + '%';
+    }
+    range.addEventListener('input', function () { set(this.value); });
+    set(range.value || 50);
+  });
+
+  /* 3 · FAQ accordion (only if you use the faq.html Code Block, not the
      native Accordion block). One open at a time. */
   document.querySelectorAll('.ft-acc .ft-item').forEach(function (it) {
     var q = it.querySelector('.ft-q');

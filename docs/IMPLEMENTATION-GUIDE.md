@@ -81,10 +81,11 @@ the editor preview honest.
 | 4 | **Who we serve** (bone-2) | `code-blocks/who-we-serve.html` | — |
 | 5 | **Why us** (Dark/navy) | `code-blocks/why-us-stats.html` | — |
 | 6 | **Process** (Dark/navy) | `code-blocks/process.html` | — |
+| 6b | **Get a quote** (Dark/navy) — *mid-page form #1* | Left: a short Text Block headline (Copy Bank §10) | Right: native **Form Block** (navy card styling needs a Dark section). Add `<span id="quote"></span>` at the top. This is the form all the section CTAs point to. |
 | 7 | **Recent work** (Light/bone) | — | **Gallery Section** (native) — set to a grid; upload before/after project photos (see `IMAGES-GUIDE.md`) |
 | 8 | **Testimonial** (Dark/navy) | `code-blocks/testimonial.html` | Replace with a real quote ASAP |
 | 9 | **FAQ** (Light/bone) | `code-blocks/faq.html` *or* native **Accordion block** | — |
-| 10 | **Footer contact band** (Dark/navy) | Left: `code-blocks/footer-cta.html` | Right: a native **Form Block** — auto-styles into the navy quote card. Add `<span id="quote"></span>` at the top so every CTA scrolls here. |
+| 10 | **Footer contact band** (Dark/navy) | Left: `code-blocks/footer-cta.html` | Right: a native **Form Block** — auto-styles into the navy quote card. Add `<span id="contact"></span>` at the top (keep `#quote` for the mid-page form — see "Running BOTH forms"). |
 | 11 | **Final CTA** (Light/bone) | `code-blocks/final-cta.html` | — |
 
 **Footer:** Edit Footer → add a Code Block → paste `code-blocks/footer.html`
@@ -119,6 +120,23 @@ Give sections an anchor so `#services`, `#process`, `#quote`, `#faq` work:
 in the section settings there's no native "anchor" field in 7.1, so add a tiny
 Code Block at the top of each target section, e.g. `<span id="quote"></span>`.
 Then your buttons/links to `#quote` scroll there.
+
+### Running BOTH forms (mid-page + footer band)
+Keeping two quote forms is fine — just don't let them fight:
+1. **Unique anchors.** An `id` can only exist once per page, or the browser
+   jumps to the first match only. Use:
+   - mid-page **Get a quote** section → `<span id="quote"></span>`
+   - **footer contact band** → `<span id="contact"></span>`
+2. **Point CTAs at one target.** All the section CTAs currently link to
+   `#quote` (the mid-page form) — leave them, so buttons scroll to the nearer
+   form and the footer band catches everyone who reaches the bottom. (Prefer
+   sending them to the bottom band instead? Find-and-replace `#quote` → `#contact`
+   in the Code Blocks.)
+3. **Keep leads attributable.** Give each Form Block a different **storage label
+   / form name** (e.g. "Homepage – mid" vs "Homepage – footer") and the same
+   notifications, so you can see which one converts and no lead is missed.
+4. **Same fields, same success message** on both, so the experience is
+   consistent wherever someone submits.
 
 ---
 

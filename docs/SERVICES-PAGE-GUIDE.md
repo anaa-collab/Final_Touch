@@ -15,7 +15,7 @@ and styling below already match the system.
 | # | Section (theme) | Paste this Code Block | Notes |
 |---|---|---|---|
 | 1 | **Hero** (Dark/navy) | `services-page/01-hero.html` | Optional background photo (interior/detail). CTAs built in. |
-| 2 | **The three passes** (Light/bone) | `services-page/02-service-rows.html` | Alternating text/photo rows. Drag a native Image Block over each `.ft-media` placeholder. |
+| 2 | **The three passes** (Light/bone) | `02a-service-rough.html`, `02b-service-detail.html`, `02c-service-touchup.html` (text only) | For each pass, put the Code Block in one half of a Fluid-Engine row and drag a **native Image Block** into the other half — **your uploaded photo, no placeholder**. Alternate the image side each row (R, L, R). After pass 3, add a CTA pair from `buttons.html`. |
 | 3 | **What's included** (bone-2) | `services-page/03-included-table.html` | Add `<span id="included"></span>` at the top so the hero button jumps here. Table scrolls on mobile. |
 | 4 | **Specialty / add-ons** (Light/bone) | `services-page/04-addons.html` | Trim rows to match what you actually offer. |
 | 5 | **Process recap** (Dark/navy) | reuse `code-blocks/process.html` | Same 4-step protocol as the homepage — reinforces the method. |
@@ -47,7 +47,8 @@ a folder — good for SEO (see `SEO-AEO-CHECKLIST.md`).
   `OfferCatalog` already in `site-header.html`.
 
 ## Images
-Each of the three passes has a `.ft-media` placeholder — replace with a native
-Image Block. Best fits from your uploads: rough → the concrete room with
-shoring props; detail → the arched-window interior; touch-up → a finished,
-styled interior once you have one. Full guidance in `IMAGES-GUIDE.md`.
+The three service blocks are **text only** — you supply the photos by dropping a
+native Image Block beside each in Fluid Engine. Best fits from your uploads:
+rough → the concrete room with shoring props; detail → the arched-window
+interior; touch-up → a finished, styled interior once you have one. Full
+guidance in `IMAGES-GUIDE.md`.

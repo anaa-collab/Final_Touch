@@ -75,7 +75,7 @@ the editor preview honest.
 
 | # | Section (theme) | Paste this Code Block | Add these native blocks |
 |---|---|---|---|
-| 1 | **Hero** (Dark/navy) | `code-blocks/hero.html` | 2 Button Blocks below it: **Request a walkthrough** (Primary), **See our process** (Secondary). Or swap the placeholder for an **Image Block**. |
+| 1 | **Hero** (Dark/navy) | `code-blocks/hero.html` | Buttons are **already in the block** (Request a walkthrough / See our process) — just edit labels + links. Optionally swap the visual placeholder for an **Image Block**. |
 | 2 | **Trust strip** (Dark/graphite, thin) | `code-blocks/trust-strip.html` | Optional: small Image Blocks of real client logos |
 | 3 | **Services** (Light/bone) | `code-blocks/services.html` | Optional Image Blocks above each card |
 | 4 | **Who we serve** (bone-2) | `code-blocks/who-we-serve.html` | — |
@@ -89,6 +89,21 @@ the editor preview honest.
 
 **Footer:** Edit Footer → add a Code Block → paste `code-blocks/footer.html`
 (or rebuild with native blocks; the `.ft-footer` CSS styles either).
+
+### Buttons & CTAs
+You have two ways to place calls-to-action — mix them freely:
+1. **Baked into the Code Blocks** (already done for the Hero and Final CTA).
+   They're live, styled `.ft-btn` links — edit the label between the tags and
+   the `href`. `code-blocks/buttons.html` is a copy library of every variant
+   (primary / ghost / navy / large / pairs) you can drop into any section.
+2. **Native Button Blocks** — `+ → Button`, set **Style: Primary** (brass) or
+   **Secondary** (ghost); the Custom CSS (§2) styles them to match. Best when a
+   non-technical editor will maintain the page. Place them above/below a Code
+   Block, not inside it.
+
+**Rule of thumb:** one **brass primary** button per screen (that's the 10% in
+60-30-10); everything else is ghost or navy. Labels are verbs — "Request a
+walkthrough," "Get a same-week quote," "Call (407) 984-8024" — never "Submit."
 
 ### Section anchors (for the buttons + nav to jump)
 Give sections an anchor so `#services`, `#process`, `#quote`, `#faq` work:

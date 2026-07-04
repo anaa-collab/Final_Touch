@@ -18,31 +18,27 @@ icon added to `site-header.html`, and the before/after slider JS in
 | # | Section (theme) | Paste this Code Block | Notes |
 |---|---|---|---|
 | 1 | **Hero + stat ribbon** (Dark/navy) | `work-page/01-hero.html` | Text + 4-stat ribbon, no image |
-| 2 | **Before & after** (Light/bone) | `work-page/02-before-after.html` | Two drag-to-reveal sliders + project meta. **Add your images** (see below). |
-| 3 | **Project grid** (bone-2) | `work-page/03-project-grid.html` | 6 cards; add a photo URL per card, or use a native Gallery |
+| 2 | **Before & after** (Light/bone) | `02-before-after-intro.html`, then `02a-before-after-lakeside.html` + `02b-before-after-bayshore.html` | **Text only.** Put each project's text block in one half of a Fluid-Engine row and add your before/after image(s) in the other half (native Image Block or a before/after comparison plugin). Alternate the image side per row. |
+| 3 | **Recent turnovers** (bone-2) | `03-turnovers-intro.html`, then `03-turnovers-cards.html` | **Text only.** 6 cards with type/name/city/stats. Add photos separately — a native **Gallery Section** above/below, or an Image Block above each card. |
 | 4 | **Testimonials** (Dark/navy) | `work-page/04-testimonials.html` | Star icons kept; optional avatar photos |
 | 5 | **Sign-off artifact** (Dark/navy) | `work-page/05-signoff.html` | Digital-handover copy ("close out from your phone" — photos, e-sign, pay online) + the sign-off record card |
 | 6 | **Logo strip + CTA** (bone / bone-2) | `work-page/06-logos-cta.html` | Split into two sections if you prefer |
 
 Below the page, the graphite link footer (`footer.html`) shows as usual.
 
-## Adding your images (this is the "make space for images" part)
-All the big placeholder graphics are now **real `<img>` slots** — the text and
-icons are untouched. Fill each slot with your own photo:
+## Adding your images
+The **Before & after** and **Recent turnovers** sections are now **text-only** —
+no image elements at all — so you add every photo natively in Squarespace:
 
-**Getting a Squarespace image URL:** upload the photo to any Image Block (or
-Squarespace's image manager), view the live image, right-click → **Copy image
-address**, and paste that into the matching `src=""`.
-
-- **Before & after (section 2):** each slider has two images — the **first `<img>`
-  is the AFTER** (move-in ready), the **second is the BEFORE** (post-construction).
-  The handle wipes between them. *No-code alternative:* delete a slider and drop a
-  native before/after plugin or two Image Blocks, keeping the meta text.
-- **Project grid (section 3):** replace each card's `<img src="">` with the project
-  photo. The type pill (Custom home / Multi-family…) and stats stay. *No-code
-  alternative:* use a native **Gallery Section** with the names + cities as captions.
-- **Testimonials (section 4):** optional headshot per card; leave `src=""` empty to
-  show the plain navy circle.
+- **Before & after (section 2):** each project is a text block. In a Fluid-Engine
+  row, put the text in one column and your image(s) in the other — a native Image
+  Block, or a before/after comparison plugin for the drag effect. Alternate the
+  image side between the two projects.
+- **Recent turnovers (section 3):** text-only cards. Add the project photos as a
+  native **Gallery Section** placed above or below the cards, or drop an Image
+  Block above each card.
+- **Testimonials (section 4):** still uses a small optional avatar `<img src="">`
+  per card; leave it empty to show the plain navy circle, or paste a headshot URL.
 
 ## CTAs & anchors
 Buttons point to `#quote` (the CTA at the bottom of this page) and `/#contact`

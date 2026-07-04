@@ -27,6 +27,7 @@ squarespace/
     hero.html  trust-strip.html  services.html  who-we-serve.html
     why-us-stats.html  process.html  testimonial.html  faq.html
     final-cta.html  footer.html  sticky-mobile-cta.html
+    home-before-after.html          Homepage v2 before/after slider (empty images)
     footer-cta.html                 Navy contact band: copy left, native form right
     thank-you.html                  Branded post-submit page (form redirects here)
     buttons.html                    Copy library of every CTA button variant

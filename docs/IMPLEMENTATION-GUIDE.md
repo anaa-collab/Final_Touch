@@ -88,15 +88,15 @@ the editor preview honest.
 
 | # | Section (theme) | Paste this Code Block | Add these native blocks |
 |---|---|---|---|
-| 1 | **Hero** (Dark/navy) | `code-blocks/hero.html` | Set the **section Background → Image** to the night-skyline photo (the CSS overlays a navy gradient). Copy + buttons sit on top — no image box beside the text. See `IMAGES-GUIDE.md`. |
+| 1 | **Hero** (Dark/navy) | `code-blocks/hero.html` | v2: adds the star **proofline** + "Request a free estimate". Set the **section Background → Image** to your hero photo (the CSS overlays a navy gradient). No image box beside the text. See `IMAGES-GUIDE.md`. |
 | 2 | **Trust strip** (Dark/graphite, thin) | `code-blocks/trust-strip.html` | Optional: small Image Blocks of real client logos |
 | 3 | **Services** (Light/bone) | `code-blocks/services.html` | Optional Image Blocks above each card |
 | 4 | **Who we serve** (bone-2) | `code-blocks/who-we-serve.html` | — |
-| 5 | **Why us** (Dark/navy) | `code-blocks/why-us-stats.html` | — |
+| 5 | **Why us** (Dark/navy) | `code-blocks/why-us-stats.html` | v2: 4-stat ribbon (600+ / 48hr / 100% / 7yr) |
 | 6 | **Process** (Dark/navy) | `code-blocks/process.html` | — |
-| 6b | **Get a quote** (Dark/navy) — *mid-page form #1* | Left: a short Text Block headline (Copy Bank §10) | Right: native **Form Block** (navy card styling needs a Dark section). Add `<span id="quote"></span>` at the top. This is the form all the section CTAs point to. |
-| 7 | **Recent work** (Light/bone) | — | **Gallery Section** (native) — set to a grid; upload before/after project photos (see `IMAGES-GUIDE.md`) |
-| 8 | **Testimonial** (Dark/navy) | `code-blocks/testimonial.html` | Replace with a real quote ASAP |
+| 6b | **Get a quote** (Dark/navy) — *mid-page form #1* | Left: a short Text Block headline (Copy Bank §10) | Right: native **Form Block** (navy card styling needs a Dark section). Add `<span id="quote"></span>` at the top. Submit label: **Get my free estimate**. |
+| 7 | **Recent work / Before & after** (Light/bone) | `code-blocks/home-before-after.html` | v2: a drag before/after slider. **Images are empty** — add your after/before photos (see the block's note) or a native plugin. Meta + "See all" link to `/work`. |
+| 8 | **Testimonial + sign-off** (Dark/navy) | `code-blocks/testimonial.html` | v2: quote (empty avatar) + the sign-off report artifact. Use a real quote/photo ASAP. |
 | 9 | **FAQ** (Light/bone) | `code-blocks/faq.html` *or* native **Accordion block** | — |
 | 10 | **Footer contact band** (Dark/navy) | Left: `code-blocks/footer-cta.html` | Right: a native **Form Block** — auto-styles into the navy quote card. Add `<span id="contact"></span>` at the top (keep `#quote` for the mid-page form — see "Running BOTH forms"). |
 | 11 | **Final CTA** (Light/bone) | `code-blocks/final-cta.html` | — |

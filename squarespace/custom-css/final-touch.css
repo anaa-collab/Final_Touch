@@ -380,6 +380,12 @@ a{ text-decoration:none; }
 }
 .ft-hero .ft-assure span::before{ content:"✓"; color:var(--brass); font-weight:700; }
 @media (max-width:920px){ .ft-hero .ft-grid{ grid-template-columns:1fr; } }
+/* Hero proofline — star rating + count (homepage v2) */
+.ft-proofline{ display:flex; align-items:center; gap:11px; margin-top:24px; flex-wrap:wrap; }
+.ft-proofline .stars{ display:flex; gap:2px; color:var(--brass); }
+.ft-proofline .stars svg{ width:15px; height:15px; }
+.ft-proofline span{ font-family:var(--ft-mono); font-size:11.5px; letter-spacing:0.05em; color:#9DB0C0; }
+.ft-proofline span b{ color:var(--bone); }
 /* Single-column hero that sits over a section BACKGROUND IMAGE */
 .ft-hero .ft-inner{ max-width:660px; }
 
@@ -624,6 +630,8 @@ a{ text-decoration:none; }
 .ft-ba-meta .facts .k{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#8a8577; }
 .ft-ba-meta .facts .v{ font-weight:600; }
 .ft-hint{ font-family:var(--ft-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:#8a8577; margin-top:14px; }
+.ft-ba-meta .more{ display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-weight:600; font-size:14.5px; color:var(--brass-dark); text-decoration:none; border-bottom:1px solid var(--brass); padding-bottom:2px; }
+.ft-ba-meta .more:hover{ color:var(--navy); }
 
 /* Project grid — cards with an image top (fill <img> or use a native block) */
 .ft-proj-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,22px); }

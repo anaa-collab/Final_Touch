@@ -688,6 +688,81 @@ a{ text-decoration:none; }
 .ft-logos span{ font-weight:700; font-size:19px; letter-spacing:0.02em; color:var(--ink-soft); opacity:0.72; }
 
 
+/* ═══ 7d · CONTACT PAGE components (ported from the source) ══════════════ */
+/* Hero left column: copy + reassurance checklist + direct-contact cards ---- */
+.ft-lead-copy h1{ font-weight:800; font-size:clamp(36px,5.2vw,62px); letter-spacing:-0.025em; line-height:0.99; margin:14px 0 20px; color:var(--bone); }
+.ft-lead-copy h1 em{ font-style:normal; color:var(--brass); }
+.ft-lead-copy .sub{ font-size:clamp(17px,1.6vw,20px); line-height:1.6; color:#9DB0C0; max-width:46ch; }
+.ft-assure-list{ list-style:none; margin-top:30px; padding:0; display:flex; flex-direction:column; gap:14px; }
+.ft-assure-list li{ position:relative; padding-left:34px; font-size:15.5px; line-height:1.45; color:#C7D2DB; }
+.ft-assure-list li b{ color:var(--bone); }
+.ft-assure-list li::before{ content:""; position:absolute; left:0; top:0; width:21px; height:21px; border-radius:50%; background:var(--brass); -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/13px no-repeat; mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/13px no-repeat; }
+.ft-direct-cards{ margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:520px){ .ft-direct-cards{ grid-template-columns:1fr; } }
+.ft-dcard{ display:flex; align-items:center; gap:13px; background:var(--navy-2); border:1px solid var(--navy-line); border-radius:4px; padding:15px 16px; text-decoration:none; transition:border-color .15s,transform .15s; }
+.ft-dcard.wide{ grid-column:1/-1; }
+.ft-dcard:hover{ border-color:var(--brass); transform:translateY(-2px); }
+.ft-dcard .ico{ width:38px; height:38px; border-radius:4px; background:var(--navy); display:grid; place-items:center; color:var(--brass); flex:none; }
+.ft-dcard .ico svg{ width:20px; height:20px; }
+.ft-dcard .k{ font-family:var(--ft-mono); font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#8DA0B0; display:block; }
+.ft-dcard .v{ font-weight:700; font-size:15px; color:var(--bone); letter-spacing:-0.005em; margin-top:2px; display:block; }
+
+/* Contact estimate form = a native Form Block styled as a BONE card (light).
+   Drop <span class="ft-contact-form"></span> in the same section as the form. */
+.page-section:has(.ft-contact-form) .form-wrapper{ background:var(--bone) !important; border:0 !important; border-radius:6px !important; padding:clamp(24px,3vw,38px) !important; box-shadow:0 40px 80px rgba(11,24,37,0.4); }
+.page-section:has(.ft-contact-form) .form-wrapper .title{ color:var(--ink) !important; }
+.page-section:has(.ft-contact-form) .form-wrapper input,
+.page-section:has(.ft-contact-form) .form-wrapper select,
+.page-section:has(.ft-contact-form) .form-wrapper textarea{ background:#fff !important; color:var(--ink) !important; border:1.5px solid var(--bone-line) !important; }
+.page-section:has(.ft-contact-form) .form-wrapper input::placeholder,
+.page-section:has(.ft-contact-form) .form-wrapper textarea::placeholder{ color:#a49e8d !important; }
+.page-section:has(.ft-contact-form) .form-wrapper input:focus,
+.page-section:has(.ft-contact-form) .form-wrapper select:focus,
+.page-section:has(.ft-contact-form) .form-wrapper textarea:focus{ border-color:var(--brass) !important; box-shadow:0 0 0 3px rgba(168,131,74,0.20) !important; }
+
+/* What happens next — timeline steps (white cards, navy icon square, "when") */
+.ft-cnext{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,22px); }
+@media (max-width:760px){ .ft-cnext{ grid-template-columns:1fr; } }
+.ft-cstep{ background:#fff; border:1px solid var(--bone-line); border-radius:4px; padding:30px 28px 32px; }
+.ft-cstep .n{ font-family:var(--ft-mono); font-size:11px; letter-spacing:0.14em; color:var(--brass-dark); }
+.ft-cstep .cico{ width:48px; height:48px; border-radius:4px; background:var(--navy); display:grid; place-items:center; color:var(--brass); margin:16px 0 18px; }
+.ft-cstep .cico svg{ width:27px; height:27px; }
+.ft-cstep h3{ font-weight:700; font-size:20px; letter-spacing:-0.01em; margin-bottom:9px; }
+.ft-cstep p{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); }
+.ft-cstep .when{ font-family:var(--ft-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass-dark); margin-top:16px; padding-top:14px; border-top:1px solid #EEEAE0; }
+
+/* Service area + hours ---------------------------------------------------- */
+.ft-area{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(30px,4vw,60px); align-items:center; }
+@media (max-width:860px){ .ft-area{ grid-template-columns:1fr; } }
+.ft-area .lead2{ font-size:clamp(17px,1.6vw,20px); line-height:1.6; color:#9DB0C0; margin-top:16px; max-width:44ch; }
+.ft-cities{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.ft-cities span{ font-family:var(--ft-mono); font-size:12px; letter-spacing:0.04em; color:var(--bone); border:1px solid var(--navy-line); border-radius:999px; padding:8px 15px; }
+.ft-hours{ background:var(--navy-2); border:1px solid var(--navy-line); border-radius:5px; padding:clamp(24px,3vw,34px); }
+.ft-hours h3{ font-weight:700; font-size:19px; color:var(--bone); margin-bottom:4px; }
+.ft-hours .note{ font-size:13.5px; color:#9DB0C0; margin-bottom:20px; }
+.ft-hours .hr{ display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--navy-line); font-size:14.5px; }
+.ft-hours .hr:last-of-type{ border-bottom:0; }
+.ft-hours .hr .d{ color:#C7D2DB; }
+.ft-hours .hr .t{ font-family:var(--ft-mono); font-size:12.5px; color:var(--bone); }
+.ft-hours .hr .t.closed{ color:#7d94a6; }
+.ft-hours .resp{ display:flex; align-items:center; gap:11px; margin-top:20px; padding:14px 16px; background:var(--navy); border-radius:4px; }
+.ft-hours .resp .dot{ width:9px; height:9px; border-radius:50%; background:var(--brass); flex:none; box-shadow:0 0 0 4px rgba(168,131,74,0.22); }
+.ft-hours .resp .txt{ font-size:13px; color:#C7D2DB; line-height:1.45; }
+.ft-hours .resp .txt b{ color:var(--bone); }
+
+/* Social-proof rating strip ---------------------------------------------- */
+.ft-proof-strip{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:clamp(28px,4vw,56px); align-items:center; }
+@media (max-width:860px){ .ft-proof-strip{ grid-template-columns:1fr; } }
+.ft-proof-strip .rate{ display:flex; align-items:baseline; gap:14px; }
+.ft-proof-strip .rate .num{ font-weight:800; font-size:clamp(52px,7vw,80px); letter-spacing:-0.03em; line-height:0.9; }
+.ft-proof-strip .stars{ display:flex; gap:2px; color:var(--brass); }
+.ft-proof-strip .stars svg{ width:18px; height:18px; }
+.ft-proof-strip .cnt{ font-family:var(--ft-mono); font-size:11.5px; letter-spacing:0.06em; color:var(--ink-soft); margin-top:6px; }
+.ft-proof-strip blockquote{ font-weight:700; font-size:clamp(19px,2.2vw,26px); letter-spacing:-0.015em; line-height:1.3; }
+.ft-proof-strip blockquote em{ font-style:normal; color:var(--brass-dark); }
+.ft-proof-strip .cite{ font-family:var(--ft-mono); font-size:11.5px; letter-spacing:0.06em; color:var(--ink-soft); margin-top:16px; }
+
+
 /* ═══ 8 · SCROLL-REVEAL + MOTION ═════════════════════════════════════════ */
 @media (prefers-reduced-motion:no-preference){
   .ft-reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }

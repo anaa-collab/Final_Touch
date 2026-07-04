@@ -34,8 +34,10 @@ squarespace/
                                     scope bar, 3 core passes, specialty, packages,
                                     assurances, how-it-works, CTA
     work-page/                      /work portfolio (matches source): hero+ribbon,
-                                    before/after sliders, project grid,
+                                    before/after (text), turnovers (text),
                                     testimonials, sign-off artifact, logos, CTA
+    contact-page/                   /contact (matches source): hero + estimate
+                                    form, what-happens-next, area+hours, proof, FAQ
 assets/final-touch-logo.svg         Upload as your Squarespace logo
 docs/
   IMPLEMENTATION-GUIDE.md           Build it, section by section
@@ -43,6 +45,7 @@ docs/
   IMAGES-GUIDE.md                   Which photo goes where, alt text, treatment
   SERVICES-PAGE-GUIDE.md            Build the /services page, section by section
   WORK-PAGE-GUIDE.md                Build the /work portfolio page + add images
+  CONTACT-PAGE-GUIDE.md             Build the /contact page + estimate form setup
   SEO-AEO-CHECKLIST.md              Titles, schema, local SEO, AEO, GBP
 ```
 

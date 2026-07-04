@@ -21,7 +21,7 @@ icon added to `site-header.html`, and the before/after slider JS in
 | 2 | **Before & after** (Light/bone) | `work-page/02-before-after.html` | Two drag-to-reveal sliders + project meta. **Add your images** (see below). |
 | 3 | **Project grid** (bone-2) | `work-page/03-project-grid.html` | 6 cards; add a photo URL per card, or use a native Gallery |
 | 4 | **Testimonials** (Dark/navy) | `work-page/04-testimonials.html` | Star icons kept; optional avatar photos |
-| 5 | **Sign-off artifact** (Dark/navy) | `work-page/05-signoff.html` | Text + the report card (a brand artifact, not a photo — kept as-is) |
+| 5 | **Sign-off artifact** (Dark/navy) | `work-page/05-signoff.html` | Digital-handover copy ("close out from your phone" — photos, e-sign, pay online) + the sign-off record card |
 | 6 | **Logo strip + CTA** (bone / bone-2) | `work-page/06-logos-cta.html` | Split into two sections if you prefer |
 
 Below the page, the graphite link footer (`footer.html`) shows as usual.

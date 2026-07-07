@@ -34,15 +34,25 @@ style it as the light/bone card automatically).
   Rough clean (mid-build) · Remodel / final detail · Commercial build-out · Not sure yet
 - **Size — sq ft / units** (text) — "e.g. 6,400 or 88 units"
 - **Project location** (text) — "Winter Park, FL"
-- **When do you need it?** (radio or dropdown): This week (rush) · 2–4 weeks
-  (planned) · Just pricing (flexible)
+- **Preferred date** (date) — "When would you like us on site?" *(this is the
+  "book online" mechanism — a desired-date field, not a live calendar)*
+- **How soon?** (radio or dropdown): This week (rush) · 2–4 weeks (planned) ·
+  Just pricing (flexible)
 - **Anything else** (textarea) — "Punch-list status, closing date, access notes…"
 
-**Submit button:** `Get my free estimate`
+**Submit button:** `Get my free quote`
 **Storage:** connect Email + Google Sheets, add a phone/email notification.
 **After submit:** redirect to `/thank-you` (reuse `code-blocks/thank-you.html`),
-or an inline message: "Request received. We'll call or text within one business
-day to set up your walkthrough. Need it sooner? Call (407) 984-8024."
+or an inline message: "Got it — we're on it. We'll send your firm quote shortly.
+Approve it and we'll lock in your date. Need it faster? Call or text
+(407) 984-8024."
+
+> **The booking model:** request → we send a firm quote → you approve → we
+> schedule the date you asked for. It's fully online and phone-tag-free, but it's
+> *not* a self-service calendar — the "Preferred date" field is how the customer
+> tells you the date; you confirm it when you send/approve the quote. All the
+> site copy is written to match this exactly (no "pick your date online" that
+> implies a live booking widget).
 
 > The design's extra flourishes (the "48h" badge, the segmented urgency chips,
 > the fineprint row) aren't native Form Block features. The urgency chips become

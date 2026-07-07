@@ -16,7 +16,14 @@ skip them, they're just for you.
 
 Every page now carries one promise, in this order:
 
-> **Get your quote online. Pick your date. We show up when we said we would.**
+> **Request your quote online. We send a firm number. Approve it and we lock in your date.**
+
+**Booking model (important — keep the copy honest):** this is *request → firm
+quote → approve → we schedule*, driven by a **"Preferred date" field** in the
+contact form. It is **not** a self-service calendar (no Calendly-style live
+booking). So the copy says "request online," "approve online," "we lock in your
+date," and "we're there on your date" — never "pick/lock your date online,"
+which would imply a live booking widget.
 
 **Why this works (neuromarketing):**
 - **Friction removal** is the strongest lever for a busy builder — "no phone
@@ -37,7 +44,7 @@ Every page now carries one promise, in this order:
   online-quote language).
 
 **The 3-step everyone should recognize:**
-`Get your quote online → Pick your date → We show up & sign off`
+`Request a quote online → Approve the number → We're there on your date`
 
 **Voice:** plain trade English, warm, "you"-first. Approachable enough for a
 homeowner finishing a remodel, exacting enough for a luxury GC. Humanize —

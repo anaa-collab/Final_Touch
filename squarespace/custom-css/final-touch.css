@@ -714,6 +714,13 @@ a{ text-decoration:none; }
 .ft-dcard .ico svg{ width:20px; height:20px; }
 .ft-dcard .k{ font-family:var(--ft-mono); font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#8DA0B0; display:block; }
 .ft-dcard .v{ font-weight:700; font-size:15px; color:var(--bone); letter-spacing:-0.005em; margin-top:2px; display:block; }
+/* Small "text a photo for a fast ballpark" prompt (works on dark or light) */
+.ft-textline{ display:inline-flex; align-items:center; gap:9px; margin-top:18px; font-family:var(--ft-mono); font-size:12.5px; letter-spacing:0.02em; color:var(--brass-dark); text-decoration:none; }
+.ft-textline svg{ width:16px; height:16px; flex:none; }
+.ft-textline b{ color:inherit; }
+.ft-textline:hover{ color:var(--navy); }
+.ft-on-dark .ft-textline{ color:var(--brass); }
+.ft-on-dark .ft-textline:hover{ color:var(--bone); }
 
 /* Contact estimate form = a native Form Block styled as a BONE card (light).
    Drop <span class="ft-contact-form"></span> in the same section as the form. */

@@ -38,10 +38,18 @@ which would imply a live booking widget.
   which quietly justifies premium pricing while *feeling* effortless.
 
 **Standard CTA labels (use these everywhere):**
-- Primary: **Get your free quote** · **Get your quote online**
-- Secondary: **See how it works** · **Book your date** · **Call (407) 984-8024**
-- Never: "Submit," "Learn more," "Request a walkthrough" (retired in favor of the
-  online-quote language).
+- Primary (the form): **Get your free quote** · **Get your quote online**
+- Human-contact secondary: **lead with Text** — "Text us (407) 984-8024"
+  (`sms:` link) — with **Call** as the fallback beside it, never call alone.
+  Rationale: on-site trades text more than they call, and text literally
+  delivers the "no phone tag" promise. In prose, write "text or call," not
+  "call or text."
+- Never: "Submit," "Learn more," "Request a walkthrough."
+
+> **Two ops caveats for text:** (1) the number must be **SMS-capable** (a mobile
+> or SMS-enabled VoIP line, not a landline), and you must **watch and reply
+> fast** — a slow text reply is worse than none. (2) `sms:` links only do
+> something on **mobile**; on desktop the form stays the primary path.
 
 **The 3-step everyone should recognize:**
 `Request a quote online → Approve the number → We're there on your date`

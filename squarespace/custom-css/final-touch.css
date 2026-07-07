@@ -273,7 +273,7 @@ a{ text-decoration:none; }
 .page-section:has(.ft-band-navy) .form-wrapper .form-button-wrapper::after,
 .page-section:has(.ft-footer-cta) .form-wrapper .form-button-wrapper::after,
 #footer-sections .form-wrapper .form-button-wrapper::after{
-  content:"We call within one business day · We walk the site · Firm quote in 48 hours";
+  content:"Get your quote online · Pick your date · We show up & sign off";
   display:block;
   margin-top:14px;
   font-family:var(--ft-mono);

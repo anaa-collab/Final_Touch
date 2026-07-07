@@ -12,8 +12,51 @@ skip them, they're just for you.
 
 ---
 
+## ★ MASTER MESSAGING (v3 — the online-booking through-line)
+
+Every page now carries one promise, in this order:
+
+> **Get your quote online. Pick your date. We show up when we said we would.**
+
+**Why this works (neuromarketing):**
+- **Friction removal** is the strongest lever for a busy builder — "no phone
+  tag," "no waiting around," "from your phone" beat any adjective about *clean*.
+- **Loss-aversion:** the fear isn't a dirty site, it's a *blown closing date*.
+  "We show up the day you picked" answers it.
+- **Effort reduction + control:** *you* book the date; we hold it.
+- **Dual path for both generations:** always pair the online option with "or
+  call/text a real person." Younger buyers self-serve; older buyers want a human.
+  Offering both removes the #1 objection for each without alienating the other.
+- **Modern signal:** booking a trade online reads as a well-run, current company —
+  which quietly justifies premium pricing while *feeling* effortless.
+
+**Standard CTA labels (use these everywhere):**
+- Primary: **Get your free quote** · **Get your quote online**
+- Secondary: **See how it works** · **Book your date** · **Call (407) 984-8024**
+- Never: "Submit," "Learn more," "Request a walkthrough" (retired in favor of the
+  online-quote language).
+
+**The 3-step everyone should recognize:**
+`Get your quote online → Pick your date → We show up & sign off`
+
+**Voice:** plain trade English, warm, "you"-first. Approachable enough for a
+homeowner finishing a remodel, exacting enough for a luxury GC. Humanize —
+contractions, short sentences, real talk ("no phone tag," "someone actually
+answers").
+
+**SEO anchors to keep in the copy:** post-construction cleaning, construction
+cleanup, final/sparkle/builders clean, punch list, multi-family turnover /
+make-ready, sign-off, Central Florida + Orlando / Tampa / Winter Park.
+
+*Where it lives in the build:* hero + services intro + who-we-serve + process
+intro + footer-cta + final-cta + a new "Can I book online?" FAQ (homepage);
+the whole Contact page (hero + "How booking works" 3-step); the Services
+how-it-works 4-step and CTAs; Work CTAs.
+
+---
+
 ## Nav / header
-- Button: **Request a walkthrough**
+- Button: **Get your free quote** (was "Request a walkthrough")
 - Phone (always visible): **(407) 984-8024**
 
 *Why: "walkthrough" is the builder's own word for the final site visit — it

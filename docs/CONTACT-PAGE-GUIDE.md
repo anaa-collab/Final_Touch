@@ -54,12 +54,23 @@ Approve it and we'll lock in your date. Need it faster? Call or text
 > site copy is written to match this exactly (no "pick your date online" that
 > implies a live booking widget).
 
-> The design's extra flourishes (the "48h" badge, the segmented urgency chips,
-> the fineprint row) aren't native Form Block features. The urgency chips become
-> the "When do you need it?" radio/dropdown; the reassurance already lives in the
-> left column's checklist. If you want the exact chip UI, it needs a custom coded
-> form wired to a form endpoint (Formspree, etc.) — tell me and I'll build that
-> variant, but the native Form Block is the reliable lead-capture path.
+> **The design's flourishes are now rendered on the native form via CSS** (§7d,
+> scoped to `:has(.ft-contact-form)`) — you do NOT need a coded form:
+> - **"Request your estimate" heading + subhead** and the **"24h" badge** are
+>   drawn on the form card automatically (CSS pseudo-elements). To change the
+>   text, edit the `content:""` in those three rules.
+> - **The urgency chips** are the native **"When do you need it done?" radio
+>   field** — the CSS turns its options into segmented cards (checked = navy).
+>   Add the options in this order so the sub-labels line up:
+>   `This week` · `2–4 weeks` · `Just pricing` → they get RUSH / PLANNED /
+>   FLEXIBLE. (Reorder the options and the sub-labels follow position; if they
+>   land wrong, see the `nth-of-type` note in the CSS.)
+> - **The ✓ fineprint row** ("No obligation · No spam · We never sell your info")
+>   is injected under the submit button.
+>
+> If you'd still rather have a pixel-exact coded form on an external endpoint
+> (Formspree/Basin), say the word — but the styled native Form Block is the
+> reliable lead-capture path and now matches the design.
 
 ## Anchors & nav
 Add **Contact** (or "Request an estimate") to the header nav → `/contact`. The

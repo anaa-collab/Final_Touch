@@ -735,6 +735,56 @@ a{ text-decoration:none; }
 .page-section:has(.ft-contact-form) .form-wrapper select:focus,
 .page-section:has(.ft-contact-form) .form-wrapper textarea:focus{ border-color:var(--brass) !important; box-shadow:0 0 0 3px rgba(168,131,74,0.20) !important; }
 
+/* --- FORM FIELD SIZING FIX (all quote/contact forms) ------------------------
+   Root cause of the misaligned form: the color/border/padding rules above
+   never set a WIDTH, so Squarespace lets each control size to its natural
+   width — the Name (First Name) box collapses tiny, <select> shrinks to its
+   label, and only long-placeholder fields look full. These rules force every
+   control to fill its grid column and share one height, so every field lines
+   up. Scoped to the three form contexts (bone contact card, navy band, footer
+   CTA) so no stray single-field form elsewhere is touched. */
+.page-section:has(.ft-contact-form) .form-wrapper input,
+.page-section:has(.ft-contact-form) .form-wrapper select,
+.page-section:has(.ft-contact-form) .form-wrapper textarea,
+.page-section:has(.ft-band-navy) .form-wrapper input,
+.page-section:has(.ft-band-navy) .form-wrapper select,
+.page-section:has(.ft-band-navy) .form-wrapper textarea,
+.page-section:has(.ft-footer-cta) .form-wrapper input,
+.page-section:has(.ft-footer-cta) .form-wrapper select,
+.page-section:has(.ft-footer-cta) .form-wrapper textarea,
+#footer-sections .form-wrapper input,
+#footer-sections .form-wrapper select,
+#footer-sections .form-wrapper textarea{
+  width:100% !important;
+  box-sizing:border-box !important;
+  display:block !important;
+}
+/* one consistent height for every single-line control (Name/Phone match
+   Email/Company/Project type). Textarea keeps its own taller min-height. */
+.page-section:has(.ft-contact-form) .form-wrapper input,
+.page-section:has(.ft-contact-form) .form-wrapper select,
+.page-section:has(.ft-band-navy) .form-wrapper input,
+.page-section:has(.ft-band-navy) .form-wrapper select,
+.page-section:has(.ft-footer-cta) .form-wrapper input,
+.page-section:has(.ft-footer-cta) .form-wrapper select,
+#footer-sections .form-wrapper input,
+#footer-sections .form-wrapper select{ min-height:50px !important; }
+.page-section:has(.ft-contact-form) .form-wrapper textarea,
+.page-section:has(.ft-band-navy) .form-wrapper textarea,
+.page-section:has(.ft-footer-cta) .form-wrapper textarea{ min-height:96px !important; resize:vertical !important; }
+/* Name field: its wrapper and first/last sub-inputs fill the row. If both
+   First and Last are enabled they stack full-width (still aligned) instead of
+   squeezing into a tiny half. */
+.page-section:has(.ft-contact-form) .form-wrapper .name,
+.page-section:has(.ft-band-navy) .form-wrapper .name,
+.page-section:has(.ft-footer-cta) .form-wrapper .name{ display:block !important; width:100% !important; }
+.page-section:has(.ft-contact-form) .form-wrapper .name > div,
+.page-section:has(.ft-band-navy) .form-wrapper .name > div,
+.page-section:has(.ft-footer-cta) .form-wrapper .name > div{ width:100% !important; margin-bottom:10px !important; }
+.page-section:has(.ft-contact-form) .form-wrapper .name > div:last-child,
+.page-section:has(.ft-band-navy) .form-wrapper .name > div:last-child,
+.page-section:has(.ft-footer-cta) .form-wrapper .name > div:last-child{ margin-bottom:0 !important; }
+
 /* What happens next — timeline steps (white cards, navy icon square, "when") */
 .ft-cnext{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,22px); }
 @media (max-width:760px){ .ft-cnext{ grid-template-columns:1fr; } }

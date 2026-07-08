@@ -54,23 +54,38 @@ Approve it and we'll lock in your date. Need it faster? Call or text
 > site copy is written to match this exactly (no "pick your date online" that
 > implies a live booking widget).
 
-> **The design's flourishes are now rendered on the native form via CSS** (§7d,
-> scoped to `:has(.ft-contact-form)`) — you do NOT need a coded form:
-> - **"Request your estimate" heading + subhead** and the **"24h" badge** are
->   drawn on the form card automatically (CSS pseudo-elements). To change the
->   text, edit the `content:""` in those three rules.
-> - **The urgency chips** are the native **"When do you need it done?" radio
->   field** — the CSS turns its options into segmented cards (checked = navy).
->   Add the options in this order so the sub-labels line up:
->   `This week` · `2–4 weeks` · `Just pricing` → they get RUSH / PLANNED /
->   FLEXIBLE. (Reorder the options and the sub-labels follow position; if they
->   land wrong, see the `nth-of-type` note in the CSS.)
-> - **The ✓ fineprint row** ("No obligation · No spam · We never sell your info")
->   is injected under the submit button.
+> **Clean native skin (current approach).** The CSS styles the native Form Block
+> cosmetically but does NOT lay out the columns — Squarespace's own Form Block
+> does. This avoids the custom CSS fighting the newer Form Block's layout engine.
 >
-> If you'd still rather have a pixel-exact coded form on an external endpoint
-> (Formspree/Basin), say the word — but the styled native Form Block is the
-> reliable lead-capture path and now matches the design.
+> **You control the field layout in the Form Block editor:**
+> - Click each field and set its **width** (Full / ½ / ⅓). For the design's
+>   pairing: Name ½, Phone ½ · Company ½, Email ½ · Project type ½, Size ½ ·
+>   Project location Full · When-do-you-need-it Full · Anything else Full.
+> - Set every field to **Full width** first if you just want a clean single
+>   column — it always looks tidy.
+> - If you added a **newsletter "Sign up" checkbox**, set it to Full width (or
+>   remove it) so its label doesn't get squeezed.
+>
+> **What the CSS still does for you (cosmetic, no layout):**
+> - Skins the card, inputs, focus states, and the brass submit button.
+> - Turns the **"When do you need it done?" radio field** into stacked bordered
+>   cards (selected = navy) with **Rush / Planned / Flexible** sub-labels. Add
+>   the options in this order: `This week` · `2–4 weeks` · `Just pricing`. (Sub-
+>   labels follow position; if they land wrong, see the `nth-of-type` note in
+>   the CSS.)
+> - Injects the **✓ trust row** ("No obligation · No spam · We never sell your
+>   info") under the submit button.
+>
+> **The "Request your estimate" heading + "24h · quote turnaround" badge** are
+> NOT drawn by CSS anymore (as pseudo-elements they landed unreliably on the new
+> Form Block). Add them as a small **Text Block directly above the Form Block**:
+> a bold line "Request your estimate", a muted line "Two required fields — the
+> rest just sharpens your quote.", and (optional) a navy "24h" chip.
+>
+> If you later want a **pixel-exact** version (badge + chips locked in, identical
+> in every browser), that's the coded-form route on a free endpoint
+> (Formspree/Basin) — say the word and I'll build it.
 
 ## Anchors & nav
 Add **Contact** (or "Request an estimate") to the header nav → `/contact`. The

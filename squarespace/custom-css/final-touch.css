@@ -229,8 +229,11 @@ a{ text-decoration:none; }
    Scoped to the dark/footer contexts where the quote forms live so it won't
    touch a stray single-field form elsewhere. The textarea (Notes) and any
    address / name / section-header field span the full width automatically. */
-[data-section-theme*="dark"] .form-wrapper .field-list,
-.page-section:has(.ft-band-navy) .form-wrapper .field-list,
+/* NOTE: the contact estimate form is excluded here (:not(:has(.ft-contact-form)))
+   so it uses Squarespace's own Form Block layout — set its field widths in the
+   editor. This grid is for the navy/footer quote forms only. */
+[data-section-theme*="dark"]:not(:has(.ft-contact-form)) .form-wrapper .field-list,
+.page-section:has(.ft-band-navy):not(:has(.ft-contact-form)) .form-wrapper .field-list,
 .page-section:has(.ft-band-navy2) .form-wrapper .field-list,
 .page-section:has(.ft-footer-cta) .form-wrapper .field-list,
 #footer-sections .form-wrapper .field-list,
@@ -259,8 +262,8 @@ a{ text-decoration:none; }
 #footer-sections .form-wrapper .field-list > .form-item.textarea{ grid-column:1 / -1; }
 /* stack to one column on small screens */
 @media (max-width:600px){
-  [data-section-theme*="dark"] .form-wrapper .field-list,
-  .page-section:has(.ft-band-navy) .form-wrapper .field-list,
+  [data-section-theme*="dark"]:not(:has(.ft-contact-form)) .form-wrapper .field-list,
+  .page-section:has(.ft-band-navy):not(:has(.ft-contact-form)) .form-wrapper .field-list,
   .page-section:has(.ft-footer-cta) .form-wrapper .field-list,
   #footer-sections .form-wrapper .field-list{ grid-template-columns:1fr; }
 }
@@ -785,105 +788,60 @@ a{ text-decoration:none; }
 .page-section:has(.ft-band-navy) .form-wrapper .name > div:last-child,
 .page-section:has(.ft-footer-cta) .form-wrapper .name > div:last-child{ margin-bottom:0 !important; }
 
-/* ═══ CONTACT FORM — DESIGN CHROME (heading · subhead · 24h badge · urgency
-   cards · trust row). All rendered ON the native Form Block card via CSS so no
-   extra blocks are needed. Everything here is scoped to the contact section
-   (:has(.ft-contact-form)) so the navy/footer quote forms are untouched.
-   Requires :has() (all current browsers). ================================= */
+/* ═══ CONTACT FORM — CLEAN NATIVE SKIN ══════════════════════════════════════
+   COSMETIC ONLY. The field LAYOUT (which fields sit side-by-side, and how wide
+   each is) is left to Squarespace's own Form Block editor — set each field's
+   width there. These rules never impose a grid, so they can't fight the block's
+   layout the way the previous version did. Scoped to :has(.ft-contact-form).
 
-/* make the card a positioning context + open a header zone at the top */
-.page-section:has(.ft-contact-form) .form-wrapper{
-  position:relative !important;
-  padding-top:clamp(30px,3vw,40px) !important;
-}
-/* HEADING — "Request your estimate" (top-left of the card) */
-.page-section:has(.ft-contact-form) .form-wrapper::before{
-  content:"Request your estimate";
-  display:block;
-  max-width:60%;
-  font-family:var(--ft-font);
-  font-weight:800;
-  font-size:clamp(22px,2.4vw,27px);
-  letter-spacing:-0.02em;
-  line-height:1.04;
-  color:var(--ink);
-  margin-bottom:16px;
-}
-/* SUBHEAD — first row of the field grid, spans full width */
-.page-section:has(.ft-contact-form) .form-wrapper .field-list::before{
-  content:"Two required fields. The rest just sharpens your quote.";
-  grid-column:1 / -1;
-  max-width:34ch;
-  font-family:var(--ft-font);
-  font-size:14.5px;
-  line-height:1.5;
-  color:var(--ink-soft);
-  margin:-4px 0 4px;
-}
-/* 24h BADGE — navy chip pinned to the card's top-right corner */
-.page-section:has(.ft-contact-form) .form-wrapper::after{
-  content:"24h\A quote turnaround";
-  white-space:pre-line;
-  position:absolute;
-  top:clamp(26px,3vw,36px);
-  right:clamp(24px,3vw,38px);
-  width:104px;
-  padding:12px 10px;
-  background:var(--navy);
-  border:1px solid var(--navy-line);
-  border-radius:4px;
-  font-family:var(--ft-mono);
-  font-size:11px;
-  font-weight:600;
-  line-height:1.5;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  text-align:center;
-  color:var(--brass);
+   The design's heading + "24h" badge are NOT drawn here anymore (as CSS pseudo-
+   elements they landed unreliably on the new Form Block). Add them as a small
+   Text Block directly above the form instead — see the Contact guide.
+   ========================================================================== */
+
+/* Checkbox / radio inputs must NOT inherit the full-width text-input sizing
+   from §5 (that width:100% + display:block crushed the newsletter checkbox
+   into a one-letter-per-line vertical strip). Put them back to inline. */
+.page-section:has(.ft-contact-form) .form-wrapper input[type="checkbox"],
+.page-section:has(.ft-contact-form) .form-wrapper input[type="radio"]{
+  width:auto !important;
+  height:auto !important;
+  min-height:0 !important;
+  display:inline-block !important;
+  box-sizing:content-box !important;
 }
 
-/* URGENCY RADIOS → segmented cards ------------------------------------------
-   The "When do you need it done?" radio field becomes a row of bordered card
-   toggles; the checked one fills navy. Sub-labels (RUSH / PLANNED / FLEXIBLE)
-   are added by order below — see the note if they land on the wrong card. */
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio{ grid-column:1 / -1 !important; }
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio fieldset{
-  display:flex; flex-wrap:wrap; gap:12px; border:0; margin:0; padding:0;
-}
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio legend,
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .title{
-  flex:0 0 100%; margin-bottom:2px;
-}
+/* "When do you need it done?" radio field → stacked bordered cards.
+   Reliable single-column stack (no imposed flex row); selected card fills navy.
+   Width of the whole field is whatever you set in the Form Block editor. */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option{
-  flex:1 1 0; min-width:120px;
   display:flex; flex-direction:column; align-items:flex-start; gap:5px;
   background:#fff;
   border:1.5px solid var(--bone-line);
   border-radius:4px;
   padding:14px 16px 12px;
+  margin-top:10px;
   cursor:pointer;
   transition:border-color .12s, background .12s, color .12s;
 }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:hover{ border-color:var(--brass); }
 /* hide the native radio dot; the whole card is the control */
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option input{
-  position:absolute !important; opacity:0 !important; width:1px !important;
-  height:1px !important; min-height:0 !important; margin:0 !important; pointer-events:none;
+.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio input[type="radio"]{
+  position:absolute !important; opacity:0 !important; pointer-events:none;
 }
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option label,
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option > *{
+.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option label{
   font-family:var(--ft-font); font-weight:600; font-size:15px; color:var(--ink);
   cursor:pointer; margin:0;
 }
-/* checked state → navy fill */
+/* checked → navy fill */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:has(input:checked){
   background:var(--navy); border-color:var(--navy);
 }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:has(input:checked) label,
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:has(input:checked)::after{ color:var(--bone); }
-/* order-based sub-labels. NOTE: if these attach to the wrong card, your radio
-   markup wraps options in an extra element — switch :nth-of-type to :nth-child,
-   or just type the word into the option label and delete these three rules. */
+.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:has(input:checked)::after{ color:var(--bone) !important; }
+/* order-based sub-labels (Rush / Planned / Flexible). If they land on the wrong
+   card, switch :nth-of-type to :nth-child, or just type the word into the
+   option label in the editor and delete these three rules. */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option::after{
   font-family:var(--ft-mono); font-size:10px; font-weight:600;
   letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-dark);
@@ -892,8 +850,8 @@ a{ text-decoration:none; }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:nth-of-type(2)::after{ content:"Planned"; }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:nth-of-type(3)::after{ content:"Flexible"; }
 
-/* TRUST ROW under the submit button (overrides the shared process microcopy
-   just for the contact form — comes later in the file, so it wins) */
+/* Trust row under the submit button (replaces the shared process microcopy
+   just for the contact form — comes later in the file, so it wins). */
 .page-section:has(.ft-contact-form) .form-wrapper .form-button-wrapper::after{
   content:"\2713  No obligation      \2713  No spam      \2713  We never sell your info" !important;
   color:var(--ink-soft) !important;

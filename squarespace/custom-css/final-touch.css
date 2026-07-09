@@ -815,6 +815,7 @@ a{ text-decoration:none; }
    Reliable single-column stack (no imposed flex row); selected card fills navy.
    Width of the whole field is whatever you set in the Form Block editor. */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option{
+  position:relative; /* containing block for the visually-hidden input below */
   display:flex; flex-direction:column; align-items:flex-start; gap:5px;
   background:#fff;
   border:1.5px solid var(--bone-line);
@@ -825,11 +826,25 @@ a{ text-decoration:none; }
   transition:border-color .12s, background .12s, color .12s;
 }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:hover{ border-color:var(--brass); }
-/* hide the native radio dot; the whole card is the control */
+/* Hide the native radio dot — the whole card is the control.
+   opacity:0 alone left a faint ring visible (native OS-rendered radio widgets
+   can ignore opacity until "appearance" is reset first). Reset appearance,
+   THEN clip the control down to a 1px box with clip-path — the standard
+   "visually hidden" pattern, which can't leave any visible artifact. */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio input[type="radio"]{
-  position:absolute !important; opacity:0 !important; pointer-events:none;
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  position:absolute !important;
+  top:0 !important; left:0 !important;
+  width:1px !important; height:1px !important;
+  padding:0 !important; margin:0 !important; border:0 !important;
+  overflow:hidden !important;
+  clip-path:inset(50%) !important;
+  opacity:0 !important;
+  pointer-events:none !important;
 }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option label{
+  position:relative; z-index:1;
   font-family:var(--ft-font); font-weight:600; font-size:15px; color:var(--ink);
   cursor:pointer; margin:0;
 }

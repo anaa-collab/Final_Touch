@@ -224,49 +224,16 @@ a{ text-decoration:none; }
 }
 .form-wrapper .form-button-wrapper .sqs-system-button:hover{ background:var(--brass-dark) !important; }
 
-/* --- TWO-COLUMN field layout -------------------------------------------------
-   Grids the field list so fields pair up (Name | Company, Phone | Email, …).
-   Scoped to the dark/footer contexts where the quote forms live so it won't
-   touch a stray single-field form elsewhere. The textarea (Notes) and any
-   address / name / section-header field span the full width automatically. */
-/* NOTE: the contact estimate form is excluded here (:not(:has(.ft-contact-form)))
-   so it uses Squarespace's own Form Block layout — set its field widths in the
-   editor. This grid is for the navy/footer quote forms only. */
-[data-section-theme*="dark"]:not(:has(.ft-contact-form)) .form-wrapper .field-list,
-.page-section:has(.ft-band-navy):not(:has(.ft-contact-form)) .form-wrapper .field-list,
-.page-section:has(.ft-band-navy2) .form-wrapper .field-list,
-.page-section:has(.ft-footer-cta) .form-wrapper .field-list,
-#footer-sections .form-wrapper .field-list,
-.sqs-footer-section .form-wrapper .field-list{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px 20px;
-  align-items:start;
-}
-/* reset Squarespace's per-field margins so the grid gap controls spacing */
-[data-section-theme*="dark"] .form-wrapper .field-list > .form-item,
-.page-section:has(.ft-band-navy) .form-wrapper .field-list > .form-item,
-.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item,
-#footer-sections .form-wrapper .field-list > .form-item{ margin:0; }
-/* full-width fields */
-[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.textarea,
-[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.section,
-[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.address,
-[data-section-theme*="dark"] .form-wrapper .field-list > .form-item.name,
-.page-section:has(.ft-band-navy) .form-wrapper .field-list > .form-item.textarea,
-.page-section:has(.ft-band-navy) .form-wrapper .field-list > .form-item.section,
-.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.textarea,
-.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.section,
-.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.address,
-.page-section:has(.ft-footer-cta) .form-wrapper .field-list > .form-item.name,
-#footer-sections .form-wrapper .field-list > .form-item.textarea{ grid-column:1 / -1; }
-/* stack to one column on small screens */
-@media (max-width:600px){
-  [data-section-theme*="dark"]:not(:has(.ft-contact-form)) .form-wrapper .field-list,
-  .page-section:has(.ft-band-navy):not(:has(.ft-contact-form)) .form-wrapper .field-list,
-  .page-section:has(.ft-footer-cta) .form-wrapper .field-list,
-  #footer-sections .form-wrapper .field-list{ grid-template-columns:1fr; }
-}
+/* --- FIELD LAYOUT: left to Squarespace's own Form Block editor -------------
+   A custom two-column grid used to be imposed here, but every form on this
+   site turns out to run on Squarespace's newer Form Block, which lays out its
+   own fields internally — a custom .field-list grid fights that (that's what
+   caused the 3-column scramble / squished-checkbox bug on the Contact page,
+   and the same bug reappeared here on the homepage form for the same reason).
+   So: NO grid is imposed on .field-list anywhere anymore. To get the
+   Name|Company, Phone|Email, Project type|Sq ft pairing from the design, set
+   each field's width to "1/2" in the Form Block editor (click the field →
+   width). Leave Project location / Preferred date / Notes at "Full". */
 
 /* --- MICRO TEXT under the submit button --------------------------------------
    Squarespace has no field for this, so we inject it after the button wrapper.
@@ -821,9 +788,17 @@ a{ text-decoration:none; }
 
 /* Checkbox / radio inputs must NOT inherit the full-width text-input sizing
    from §5 (that width:100% + display:block crushed the newsletter checkbox
-   into a one-letter-per-line vertical strip). Put them back to inline. */
+   into a one-letter-per-line vertical strip — the same bug hit the homepage
+   quote form too, since that width:100% rule is shared across all three form
+   contexts). Put them back to inline everywhere §5 applies. */
 .page-section:has(.ft-contact-form) .form-wrapper input[type="checkbox"],
-.page-section:has(.ft-contact-form) .form-wrapper input[type="radio"]{
+.page-section:has(.ft-contact-form) .form-wrapper input[type="radio"],
+.page-section:has(.ft-band-navy) .form-wrapper input[type="checkbox"],
+.page-section:has(.ft-band-navy) .form-wrapper input[type="radio"],
+.page-section:has(.ft-footer-cta) .form-wrapper input[type="checkbox"],
+.page-section:has(.ft-footer-cta) .form-wrapper input[type="radio"],
+#footer-sections .form-wrapper input[type="checkbox"],
+#footer-sections .form-wrapper input[type="radio"]{
   width:auto !important;
   height:auto !important;
   min-height:0 !important;

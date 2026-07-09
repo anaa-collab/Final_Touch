@@ -172,11 +172,14 @@ sitting just above the graphite link footer.
    **Project type** (dropdown: Custom home – final clean / Multi-family turnover /
    Rough clean (mid-build) / Remodel – final detail) · **Approx. sq ft** ·
    **Notes**.
-2. **Two columns + micro text — automatic.** The Custom CSS grids the field list
-   (Name | Company, Phone | Email, Project type | Sq ft; Notes spans full width)
-   and injects the micro-line under the submit button ("We call within one
-   business day · We walk the site · Firm quote in 48 hours"). Change that line
-   in the CSS `.form-button-wrapper::after` rule. Stacks to one column on mobile.
+2. **Two columns: set widths in the Form Block editor.** This form runs on
+   Squarespace's newer Form Block, which lays out its own fields internally —
+   a custom CSS grid fights that (3-column scrambles, a squished checkbox), so
+   the Custom CSS no longer imposes a grid on `.field-list`. Click each field →
+   width to pair them up: Name ½ | Company ½, Phone ½ | Email ½, Project type ½
+   | Sq ft ½; leave Notes at Full. The CSS still injects the micro-line under
+   the submit button ("We call within one business day · We walk the site ·
+   Firm quote in 48 hours") — change that line in `.form-button-wrapper::after`.
 3. **Storage:** connect to email + Google Sheets (Form Block → Storage). Add a
    notification to your phone/email so no lead sits.
 4. **After submit → redirect to a Thank-You page.** Squarespace's inline message

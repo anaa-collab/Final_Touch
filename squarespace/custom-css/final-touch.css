@@ -813,10 +813,24 @@ a{ text-decoration:none; }
 
 /* "When do you need it done?" radio field → stacked bordered cards.
    Reliable single-column stack (no imposed flex row); selected card fills navy.
-   Width of the whole field is whatever you set in the Form Block editor. */
+   Width of the whole field is whatever you set in the Form Block editor.
+
+   NOTE ON THE RADIO DOT: two attempts to HIDE the native input (opacity, then
+   the appearance+clip-path "visually hidden" trick) both left the same visible
+   ring — a sign it likely isn't the raw <input> painting through, but a
+   separate indicator icon the Form Block itself renders alongside it, which
+   those rules never touched. Rather than guess at hiding an unknown element a
+   third time, this gives the dot its own reserved column via CSS Grid — same
+   fix already used for the newsletter checkbox (don't hide it, lay it out
+   correctly) — so whatever renders there, it physically cannot overlap the
+   text. Grid slots: col 1 = dot (any width), col 2 = title (row 1) + the
+   Rush/Planned/Flexible sub-label (row 2, via ::after). */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option{
-  position:relative; /* containing block for the visually-hidden input below */
-  display:flex; flex-direction:column; align-items:flex-start; gap:5px;
+  display:grid;
+  grid-template-columns:28px 1fr;
+  grid-template-rows:auto auto;
+  column-gap:12px; row-gap:4px;
+  align-items:center;
   background:#fff;
   border:1.5px solid var(--bone-line);
   border-radius:4px;
@@ -826,25 +840,19 @@ a{ text-decoration:none; }
   transition:border-color .12s, background .12s, color .12s;
 }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:hover{ border-color:var(--brass); }
-/* Hide the native radio dot — the whole card is the control.
-   opacity:0 alone left a faint ring visible (native OS-rendered radio widgets
-   can ignore opacity until "appearance" is reset first). Reset appearance,
-   THEN clip the control down to a 1px box with clip-path — the standard
-   "visually hidden" pattern, which can't leave any visible artifact. */
-.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio input[type="radio"]{
-  appearance:none !important;
-  -webkit-appearance:none !important;
-  position:absolute !important;
-  top:0 !important; left:0 !important;
-  width:1px !important; height:1px !important;
-  padding:0 !important; margin:0 !important; border:0 !important;
-  overflow:hidden !important;
-  clip-path:inset(50%) !important;
-  opacity:0 !important;
-  pointer-events:none !important;
+/* Radio dot: its own grid column, spans both text rows, vertically centered.
+   Sized and tinted to match the brand instead of being hidden. */
+.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option input[type="radio"]{
+  grid-column:1; grid-row:1 / 3; justify-self:start; align-self:center;
+  width:18px !important; height:18px !important;
+  margin:0 !important;
+  accent-color:var(--brass-dark) !important;
+}
+.page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option:has(input:checked) input[type="radio"]{
+  accent-color:var(--bone) !important;
 }
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option label{
-  position:relative; z-index:1;
+  grid-column:2; grid-row:1;
   font-family:var(--ft-font); font-weight:600; font-size:15px; color:var(--ink);
   cursor:pointer; margin:0;
 }
@@ -858,6 +866,7 @@ a{ text-decoration:none; }
    card, switch :nth-of-type to :nth-child, or just type the word into the
    option label in the editor and delete these three rules. */
 .page-section:has(.ft-contact-form) .form-wrapper .form-item.radio .option::after{
+  grid-column:2; grid-row:2;
   font-family:var(--ft-mono); font-size:10px; font-weight:600;
   letter-spacing:0.14em; text-transform:uppercase; color:var(--brass-dark);
 }

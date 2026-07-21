@@ -213,6 +213,17 @@ a{ text-decoration:none; }
    the low-contrast "cream options" look. Give options their own dark, legible
    color independent of the select's own color. */
 .form-wrapper option{ color:var(--ink) !important; background:#fff !important; }
+/* "Select an option" is the placeholder row, almost always a disabled
+   <option> under the hood. Browsers commonly dim disabled options via their
+   own opacity/fill rendering, on top of (not instead of) their color — so
+   the plain rule above alone can leave it looking washed-out/cream even
+   though its color is technically set. Cover that explicitly. */
+.form-wrapper option:disabled,
+.form-wrapper option[value=""]{
+  color:var(--ink) !important;
+  -webkit-text-fill-color:var(--ink) !important;
+  opacity:1 !important;
+}
 .form-wrapper input:focus,
 .form-wrapper select:focus,
 .form-wrapper textarea:focus{

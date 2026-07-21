@@ -595,6 +595,11 @@ a{ text-decoration:none; }
 .ft-ribbon .big span{ color:var(--brass); }
 .ft-ribbon .lbl{ font-family:var(--ft-mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#8DA0B0; margin-top:9px; }
 @media (max-width:640px){ .ft-ribbon{ grid-template-columns:1fr 1fr; } }
+/* 3-stat variant (homepage "Why Final Touch") — the Work page hero still
+   uses the plain 4-column .ft-ribbon above, so this is a separate modifier
+   rather than a change to the shared class. */
+.ft-ribbon.ft-ribbon-3{ grid-template-columns:repeat(3,1fr); }
+@media (max-width:640px){ .ft-ribbon.ft-ribbon-3{ grid-template-columns:1fr; } }
 
 /* Before / after slider (fill the two <img> slots with your photos) -------- */
 .ft-ba-wrap{ display:grid; grid-template-columns:1.35fr 0.65fr; gap:clamp(24px,3vw,44px); align-items:center; }

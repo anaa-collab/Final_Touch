@@ -205,6 +205,14 @@ a{ text-decoration:none; }
 }
 .form-wrapper input::placeholder,
 .form-wrapper textarea::placeholder{ color:#5F7488 !important; }
+/* The dropdown LIST a <select> opens (its <option> items) is rendered by the
+   browser on its own white/light popup — outside our navy card, and not
+   something our background/border rules above can reach. The bone/cream text
+   color right above reads great on the navy input itself (e.g. the "Approx.
+   sq ft" value), but that same cream on the browser's white popup is exactly
+   the low-contrast "cream options" look. Give options their own dark, legible
+   color independent of the select's own color. */
+.form-wrapper option{ color:var(--ink) !important; background:#fff !important; }
 .form-wrapper input:focus,
 .form-wrapper select:focus,
 .form-wrapper textarea:focus{

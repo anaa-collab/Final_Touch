@@ -37,16 +37,28 @@
   });
 
   /* 3 · FAQ accordion (only if you use the faq.html Code Block, not the
-     native Accordion block). One open at a time. */
+     native Accordion block). One open at a time.
+     The answer <div class="ft-a"> is hidden via an INLINE style="display:none"
+     in the markup (only the first item lacks it, which is why only that one
+     ever showed) — a CSS class rule can't override an inline style without
+     !important, so this toggles that inline style directly rather than
+     relying on the "open" class + a CSS rule that never existed. */
   document.querySelectorAll('.ft-acc .ft-item').forEach(function (it) {
     var q = it.querySelector('.ft-q');
-    if (!q) return;
+    var a = it.querySelector('.ft-a');
+    if (!q || !a) return;
     q.addEventListener('click', function () {
       var open = it.classList.contains('open');
       it.closest('.ft-acc').querySelectorAll('.ft-item').forEach(function (o) {
-        o.classList.remove('open'); var pm = o.querySelector('.ft-pm'); if (pm) pm.textContent = '+';
+        o.classList.remove('open');
+        var pm = o.querySelector('.ft-pm'); if (pm) pm.textContent = '+';
+        var oa = o.querySelector('.ft-a'); if (oa) oa.style.display = 'none';
       });
-      if (!open) { it.classList.add('open'); var pm = it.querySelector('.ft-pm'); if (pm) pm.textContent = '–'; }
+      if (!open) {
+        it.classList.add('open');
+        var pm = it.querySelector('.ft-pm'); if (pm) pm.textContent = '–';
+        a.style.display = 'block';
+      }
     });
   });
 })();

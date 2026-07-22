@@ -45,6 +45,13 @@ p, .sqsrte-large, .sqsrte-small,
 input, select, textarea, button{
   font-family:var(--ft-font);
   -webkit-font-smoothing:antialiased;
+  /* letter-spacing is inherited, so setting it on body opens up tracking for
+     ALL body copy (paragraphs, list items, form fields, custom .ft-* text)
+     site-wide in one place. Headings and the mono/uppercase labels each set
+     their own letter-spacing later in the file (negative for headings, wide
+     positive for mono labels) at equal-or-higher specificity, so they aren't
+     affected by this and keep their existing tracking. */
+  letter-spacing:0.012em;
 }
 
 h1, h2, h3, h4, h5, h6,

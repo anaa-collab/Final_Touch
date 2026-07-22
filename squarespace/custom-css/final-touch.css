@@ -673,7 +673,12 @@ a{ text-decoration:none; }
 .ft-report .co small{ display:block; font-family:var(--ft-mono); font-size:8.5px; letter-spacing:0.16em; color:#8a8577; margin-top:3px; }
 .ft-report .rseal{ text-align:right; font-family:var(--ft-mono); font-size:9px; letter-spacing:0.08em; color:var(--brass-dark); }
 .ft-report .rtitle{ font-family:var(--ft-mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#8a8577; margin:18px 0 4px; }
-.ft-report h4{ font-weight:800; font-size:20px; letter-spacing:-0.01em; }
+/* !important needed: this h4 sits inside a dark/navy section, and the
+   sitewide dark-section rule (turns h1-h4 bone/cream so real headings read
+   on a navy background) is more specific than this class+element selector,
+   so it was winning and rendering the project title bone-on-bone against
+   this card's own bone background — invisible. Force it back to ink. */
+.ft-report h4{ font-weight:800; font-size:20px; letter-spacing:-0.01em; color:var(--ink) !important; }
 .ft-report .rmeta{ font-family:var(--ft-mono); font-size:10.5px; letter-spacing:0.04em; color:#726c5f; margin-top:4px; }
 .ft-report .rows{ margin-top:18px; }
 .ft-report .rr{ display:flex; align-items:center; gap:11px; padding:9px 0; border-bottom:1px solid var(--bone-line); font-size:13px; }

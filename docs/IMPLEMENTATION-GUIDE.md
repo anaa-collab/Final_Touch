@@ -69,9 +69,9 @@ for you) or an embed (Calendly / Typeform). This guide uses the native Form Bloc
 
 ### 1d. Logo + header
 1. **Design → Logo & Title:** upload `assets/final-touch-logo.svg` (bone version).
-2. **Edit header → add a button** labeled **"Request a walkthrough"** (style:
-   Primary → renders brass). Add your phone as a secondary nav link
-   `tel:+14079848024` — the CSS turns it brass and mono.
+2. **Edit header → add a button** labeled **"Get your free quote"**, linked to
+   `/contact` (style: Primary → renders brass). Add your phone as a secondary
+   nav link `tel:+14079848024` — the CSS turns it brass and mono.
 
 ---
 
@@ -213,7 +213,7 @@ reads "maid service," which is off-brand.
 - Tap targets ≥ 44px, body text ≥ 16px — already enforced.
 - Check color contrast stays on the approved pairs (bone-on-navy, graphite-on-
   bone). Never put brass text on bone (fails contrast — brand rule 07).
-- Buttons are **verbs** ("Request a walkthrough"), never "Submit/Learn more."
+- Buttons are **verbs** ("Get your free quote"), never "Submit/Learn more."
 
 ---
 

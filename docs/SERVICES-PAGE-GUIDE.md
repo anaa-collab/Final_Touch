@@ -32,9 +32,10 @@ Below the page, the site's graphite link footer (`footer.html`) shows as usual.
 ## Anchors (add a tiny Code Block `<span id="…"></span>` at each section top)
 The three-pass intro, specialty, packages, assurances, how-it-works, and CTA
 blocks already include their `id` spans. The scope bar links to
-`#core #specialty #packages #addons #how` and the CTAs to `#quote`. The CTA's
-"Request a walkthrough" points to `/#contact` (the homepage contact form) —
-change it to a Services-page form if you add one.
+`#core #specialty #packages #addons #how`. Every "Get your free quote" CTA
+(hero + the closing callout) links to `/contact` — the dedicated Contact page,
+not a same-page anchor — so it works the same way no matter where the visitor
+clicks it from.
 
 ## Images
 The three core passes are **text only** so you place your own photos — drag a

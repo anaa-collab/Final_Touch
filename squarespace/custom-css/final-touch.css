@@ -735,8 +735,8 @@ a{ text-decoration:none; }
 .ft-dcard .ico{ width:38px; height:38px; border-radius:4px; background:var(--navy); display:grid; place-items:center; color:var(--brass); flex:none; }
 .ft-dcard .ico svg{ width:20px; height:20px; }
 /* the text wrapper (k+v) is the other flex child — let it shrink instead of
-   forcing the card to overflow, which is what fractured "(407) 984-8024"
-   into "984-" / "8024" on separate lines. */
+   forcing the card to overflow, which is what fractured a phone number like
+   "(321) 233-3513" across separate lines mid-digit. */
 .ft-dcard > span:not(.ico){ min-width:0; flex:1; }
 .ft-dcard .k{ font-family:var(--ft-mono); font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:#8DA0B0; display:block; }
 .ft-dcard .v{ font-weight:700; font-size:15px; color:var(--bone); letter-spacing:-0.005em; margin-top:2px; display:block; }

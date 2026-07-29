@@ -45,7 +45,7 @@ style it as the light/bone card automatically).
 **After submit:** redirect to `/thank-you` (reuse `code-blocks/thank-you.html`),
 or an inline message: "Got it — we're on it. We'll send your firm quote shortly.
 Approve it and we'll lock in your date. Need it faster? Call or text
-(407) 984-8024."
+(321) 233-3513."
 
 > **The booking model:** request → we send a firm quote → you approve → we
 > schedule the date you asked for. It's fully online and phone-tag-free, but it's
@@ -96,7 +96,7 @@ CTAs that go to `/#contact` at this page instead if you make this the primary fo
 - **Title:** `Request a Free Estimate | Final Touch Cleaning — Central Florida`
 - **Description:** `Free, no-obligation post-construction cleaning estimate for
   Central Florida builders and GCs. We walk the site this week and send a firm,
-  itemized quote within 48 hours. Call (407) 984-8024.`
+  itemized quote within 48 hours. Call (321) 233-3513.`
 - Keep the `LocalBusiness` schema (site-header) accurate; this page reinforces
   hours + service area, which helps local SEO.
 

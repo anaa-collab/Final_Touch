@@ -1,9 +1,15 @@
 <!-- FOOTER — paste into a Code Block in the Squarespace FOOTER area
      (Edit Footer → add Code Block). Or rebuild with native blocks + the CSS.
-     Update the email + license number with your real details. -->
+     Update the email + license number with your real details.
+     Cleaned up: dropped the "Company" column (Who we serve / Why us / Process
+     / FAQ) — those were same-page anchors (#who #why #process #faq) that only
+     ever worked when clicked FROM the homepage itself, and this footer shows
+     on every page, so on Services/Work/Contact they silently did nothing.
+     The Services column now links to the real /services page (with anchors
+     that actually exist there) instead of a homepage-only "#services". -->
 <div class="ft ft-footer" style="background:var(--graphite);color:var(--bone);padding:clamp(52px,6vw,80px) 0 40px">
   <div class="ft-wrap" style="padding:0 clamp(20px,4vw,48px)">
-    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(24px,3vw,40px)">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(24px,3vw,40px)">
       <div>
         <div style="display:flex;align-items:center;gap:13px">
           <svg class="ft-lig" style="width:34px;color:var(--bone)"><use href="#ftlig"/></svg>
@@ -13,22 +19,15 @@
       </div>
       <div>
         <h5>Services</h5>
-        <a href="#services" style="display:block;margin-bottom:11px;font-size:14px">Rough clean</a>
-        <a href="#services" style="display:block;margin-bottom:11px;font-size:14px">Detail pass</a>
-        <a href="#services" style="display:block;margin-bottom:11px;font-size:14px">Final touch-up</a>
-        <a href="#services" style="display:block;margin-bottom:11px;font-size:14px">Multi-family turnover</a>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <a href="#who" style="display:block;margin-bottom:11px;font-size:14px">Who we serve</a>
-        <a href="#why" style="display:block;margin-bottom:11px;font-size:14px">Why us</a>
-        <a href="#process" style="display:block;margin-bottom:11px;font-size:14px">Process</a>
-        <a href="#faq" style="display:block;margin-bottom:11px;font-size:14px">FAQ</a>
+        <a href="/services#core" style="display:block;margin-bottom:11px;font-size:14px">Rough clean</a>
+        <a href="/services#core" style="display:block;margin-bottom:11px;font-size:14px">Detail pass</a>
+        <a href="/services#core" style="display:block;margin-bottom:11px;font-size:14px">Final touch-up</a>
+        <a href="/services#specialty" style="display:block;margin-bottom:11px;font-size:14px">Multi-family turnover</a>
       </div>
       <div>
         <h5>Contact</h5>
-        <a href="sms:+14079848024" style="display:block;margin-bottom:11px;font-size:14px">Text us — (407) 984-8024</a>
-        <a href="tel:+14079848024" style="display:block;margin-bottom:11px;font-size:14px">Call — (407) 984-8024</a>
+        <a href="sms:+13212333513" style="display:block;margin-bottom:11px;font-size:14px">Text us — (321) 233-3513</a>
+        <a href="tel:+13212333513" style="display:block;margin-bottom:11px;font-size:14px">Call — (321) 233-3513</a>
         <a href="mailto:info@finaltouchcleaningfl.com" style="display:block;margin-bottom:11px;font-size:14px">info@finaltouchcleaningfl.com</a>
         <div style="color:#B9C5CE;font-size:14px;margin-bottom:11px">finaltouchcleaningfl.com</div>
         <div style="color:#B9C5CE;font-size:14px">Central Florida · Lic. &amp; Insured</div>

@@ -71,7 +71,7 @@ for you) or an embed (Calendly / Typeform). This guide uses the native Form Bloc
 1. **Design → Logo & Title:** upload `assets/final-touch-logo.svg` (bone version).
 2. **Edit header → add a button** labeled **"Get your free quote"**, linked to
    `/contact` (style: Primary → renders brass). Add your phone as a secondary
-   nav link `tel:+14079848024` — the CSS turns it brass and mono.
+   nav link `tel:+13212333513` — the CSS turns it brass and mono.
 
 ---
 
@@ -126,7 +126,7 @@ You have two ways to place calls-to-action — mix them freely:
 
 **Rule of thumb:** one **brass primary** button per screen (that's the 10% in
 60-30-10); everything else is ghost or navy. Labels are verbs — "Request a
-walkthrough," "Get a same-week quote," "Call (407) 984-8024" — never "Submit."
+walkthrough," "Get a same-week quote," "Call (321) 233-3513" — never "Submit."
 
 ### Section anchors (for the buttons + nav to jump)
 Give sections an anchor so `#services`, `#process`, `#quote`, `#faq` work:
@@ -189,7 +189,7 @@ sitting just above the graphite link footer.
    / GA4 conversion tag (Thank-You page → Page Header Code Injection). Prefer no
    extra page? Inline message: "Got it — we're on it. We'll call within one
    business day to schedule your walkthrough. Need it faster? Call or text
-   (407) 984-8024."
+   (321) 233-3513."
 5. The `.form-wrapper` CSS already makes inputs navy with a brass focus ring and
    a full-width brass submit button — no extra work.
 

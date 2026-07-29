@@ -489,10 +489,16 @@ a{ text-decoration:none; }
 /* Footer CONTACT BAND — left copy + right form (navy final section) ------- */
 /* Layout note: in a Fluid-Engine section, place THIS code block on the left
    half and a native Form Block on the right half — Squarespace handles the two
-   columns. The grid below is only used if you keep copy + a form embed in ONE
-   block. The form itself is styled by §5 (it turns into the navy quote card). */
-.ft-footer-cta{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,60px); align-items:start; }
-@media (max-width:900px){ .ft-footer-cta{ grid-template-columns:1fr; } }
+   columns in that (recommended, and current) setup, so .ft-footer-cta itself
+   should just be a normal full-width block: with only ONE child (the copy),
+   forcing display:grid + two equal columns here left half the block empty and
+   squeezed the copy into the other half — exactly the "too narrow" bug.
+   :has(> :nth-child(2)) only turns the grid on if you instead combine copy +
+   a form embed in this SAME block (a second child is actually present); with
+   the standard one-child setup it now stays a plain full-width block. The
+   form itself is styled by §5 (it turns into the navy quote card either way. */
+.ft-footer-cta:has(> :nth-child(2)){ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,60px); align-items:start; }
+@media (max-width:900px){ .ft-footer-cta:has(> :nth-child(2)){ grid-template-columns:1fr; } }
 .ft-footer-cta h3{ font-weight:800; font-size:clamp(28px,4vw,44px); letter-spacing:-0.02em; line-height:1.02; color:var(--bone); margin:14px 0; }
 .ft-footer-cta .ft-loss{ font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:#9DB0C0; max-width:44ch; }
 .ft-footer-cta .ft-direct{ margin-top:26px; display:flex; flex-direction:column; gap:10px; }

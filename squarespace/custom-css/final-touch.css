@@ -35,9 +35,10 @@
 
 
 /* ═══ 1 · FONTS + GLOBAL TYPOGRAPHY ═══════════════════════════════════════ */
-/* If you prefer, load the fonts via Code Injection instead of @import for a
-   small speed win — both are provided. Keep only ONE. */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500;600;700&display=swap');
+/* Fonts load via the <link> in Code Injection → Header (variable Archivo +
+   Spline Sans Mono, full wght/wdth axes) — NOT here. Loading them here too
+   would double-fetch the font files; the axes also need the real Google
+   Fonts variable-font stylesheet, which @import can't express as cleanly. */
 
 body,
 .sqs-layout,

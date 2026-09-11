@@ -26,7 +26,7 @@
   --graphite:#141517;  --graphite-2:#1D1F22;
   --navy:#16232F;      --navy-2:#1E2E3D;   --navy-line:#2A3C4D;
   --bone:#E9E4D8;      --bone-2:#DDD6C4;   --bone-line:#D3CCBA;
-  --brass:#A8834A;     --brass-dark:#8A6B3A;
+  --brass:#B77049;     --brass-dark:#965C3C;
   --ink:#141517;       --ink-soft:#4C5560;
   --ft-maxw:1200px;
   --ft-font:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -237,7 +237,7 @@ a{ text-decoration:none; }
 .form-wrapper textarea:focus{
   outline:none !important;
   border-color:var(--brass) !important;
-  box-shadow:0 0 0 3px rgba(168,131,74,0.22) !important;
+  box-shadow:0 0 0 3px rgba(183,112,73,0.22) !important;
 }
 .form-wrapper .form-button-wrapper .sqs-system-button,
 .form-wrapper input[type="submit"]{
@@ -766,7 +766,7 @@ a{ text-decoration:none; }
 .page-section:has(.ft-contact-form) .form-wrapper textarea::placeholder{ color:#a49e8d !important; }
 .page-section:has(.ft-contact-form) .form-wrapper input:focus,
 .page-section:has(.ft-contact-form) .form-wrapper select:focus,
-.page-section:has(.ft-contact-form) .form-wrapper textarea:focus{ border-color:var(--brass) !important; box-shadow:0 0 0 3px rgba(168,131,74,0.20) !important; }
+.page-section:has(.ft-contact-form) .form-wrapper textarea:focus{ border-color:var(--brass) !important; box-shadow:0 0 0 3px rgba(183,112,73,0.20) !important; }
 
 /* --- FORM FIELD SIZING FIX (all quote/contact forms) ------------------------
    Root cause of the misaligned form: the color/border/padding rules above
@@ -948,7 +948,7 @@ a{ text-decoration:none; }
 .ft-hours .hr .t{ font-family:var(--ft-mono); font-size:12.5px; color:var(--bone); }
 .ft-hours .hr .t.closed{ color:#7d94a6; }
 .ft-hours .resp{ display:flex; align-items:center; gap:11px; margin-top:20px; padding:14px 16px; background:var(--navy); border-radius:4px; }
-.ft-hours .resp .dot{ width:9px; height:9px; border-radius:50%; background:var(--brass); flex:none; box-shadow:0 0 0 4px rgba(168,131,74,0.22); }
+.ft-hours .resp .dot{ width:9px; height:9px; border-radius:50%; background:var(--brass); flex:none; box-shadow:0 0 0 4px rgba(183,112,73,0.22); }
 .ft-hours .resp .txt{ font-size:13px; color:#C7D2DB; line-height:1.45; }
 .ft-hours .resp .txt b{ color:var(--bone); }
 
